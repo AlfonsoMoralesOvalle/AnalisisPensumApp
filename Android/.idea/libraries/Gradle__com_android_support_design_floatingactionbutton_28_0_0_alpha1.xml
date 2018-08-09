@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.android.support:design-floatingactionbutton-28.0.0-alpha1">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-floatingactionbutton-28.0.0-alpha1.aar/523d28e6b7adcb4baa7c24e5e8a325bc/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-floatingactionbutton-28.0.0-alpha1.aar/523d28e6b7adcb4baa7c24e5e8a325bc/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-floatingactionbutton-28.0.0-alpha1.aar/a0ef3a25c76397a7948a4cd0968c63f5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-floatingactionbutton-28.0.0-alpha1.aar/a0ef3a25c76397a7948a4cd0968c63f5/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
