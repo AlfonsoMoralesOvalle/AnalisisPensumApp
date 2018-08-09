@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class Horario extends AppCompatActivity {
 
     ListView visor;
@@ -23,5 +25,12 @@ public class Horario extends AppCompatActivity {
         Hora h3 = new Hora("08:00");
         Hora h4 = new Hora("09:00");
         Hora h5 = new Hora("10:00");
+
+        //LISTA
+        ArrayList<Hora> horas = new ArrayList<>();
+        horas.add(h1);
+        horas.add(h3);
+        horas.add(h4);
+        horas.add(h5);
     }
 }
