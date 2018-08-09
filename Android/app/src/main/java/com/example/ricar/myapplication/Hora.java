@@ -1,4 +1,4 @@
-package Clases;
+package com.example.ricar.myapplication;
 import java.util.ArrayList;
 
 public class Hora {
@@ -29,3 +29,4 @@ public class Hora {
         return this.cursos.get(index);
     }
 }
+

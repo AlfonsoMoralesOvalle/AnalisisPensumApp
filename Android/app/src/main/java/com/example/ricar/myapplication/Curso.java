@@ -1,4 +1,4 @@
-package Clases;
+package com.example.ricar.myapplication;
 
 public class Curso {
 
