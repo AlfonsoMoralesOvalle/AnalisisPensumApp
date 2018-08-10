@@ -8,71 +8,65 @@
     <TextView
         android:gravity="center"
         android:textAlignment="center"
-        android:text="Hora"
+        android:text="00:00"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:id="@+id/textView1"
         android:layout_weight="14.28"
         />
 
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="Lun"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/textView2"
+        android:textAlignment="center"
+        android:id="@+id/Lun"
         android:layout_weight="14.28"
+        android:background="@color/colorGreen"
         />
 
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="Mar"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/textView3"
+        android:textAlignment="center"
+        android:id="@+id/Mar"
         android:layout_weight="14.28"
+        android:background="@color/colorWhite"
         />
 
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="Mie"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/textView4"
-        android:layout_weight="14.28"
+        android:textAlignment="center"
+        android:id="@+id/Mie"
+        android:layout_weight="14.27"
+        android:background="@color/colorWhite"
         />
 
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="Jue"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/textView5"
+        android:textAlignment="center"
+        android:id="@+id/Juev"
         android:layout_weight="14.28"
+        android:background="@color/colorGreen"
         />
 
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="Vie"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/textView6"
+        android:textAlignment="center"
+        android:id="@+id/Vie"
         android:layout_weight="14.28"
+        android:background="@color/colorWhite"
         />
 
-    <TextView
-        android:gravity="center"
-        android:textAlignment="center"
-        android:text="Sab"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/textView7"
+        android:textAlignment="center"
+        android:id="@+id/Sab"
         android:layout_weight="14.28"
+        android:background="@color/colorWhite"
         />
 
 </LinearLayout>
