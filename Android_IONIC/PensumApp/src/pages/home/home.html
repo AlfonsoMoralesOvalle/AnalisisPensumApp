@@ -3,11 +3,19 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Horarios</ion-title>
+    <ion-title>
+        <ion-icon name="calendar"></ion-icon>
+        Mi Horario
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+    <ion-fab bottom right>
+        <button ion-fab (click)="addCourse()" color="primary">
+            <ion-icon name="add-circle"></ion-icon>
+        </button>
+    </ion-fab>
     <ion-grid>
         <ion-row>
             <ion-col col-sm-2><ion-label text-center>Hora</ion-label></ion-col>
