@@ -11,13 +11,6 @@
 </ion-header>
 
 <ion-content padding>
-    <h2>Datos recibidos de API REST (simulados)</h2>
-    <ion-list>
-        <button ion-item *ngFor="let lista of horario">
-            {{ lista.curso }} / {{ lista.hora_inicio }} - {{ lista.hora_fin }}
-        </button>
-    </ion-list>
-
     <ion-fab bottom right>
         <button ion-fab (click)="addCourse()" color="primary">
             <ion-icon name="add-circle"></ion-icon>
