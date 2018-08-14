@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LogInPage } from '../pages/log-in/log-in';
 import { ProgresoPage } from "../pages/progreso/progreso";
+import { AprobadosPage } from "../pages/aprobados/aprobados";
 
 @Component({
   templateUrl: 'app.html'
@@ -26,7 +27,10 @@ export class MyApp {
     this.pages = [
       { title: 'Ver Mi Horario', component: HomePage },
       //{ title: 'List', component: ListPage }
-      { title: 'Ver Mi Progreso', component: ProgresoPage }
+      { title: 'Ver Mi Progreso', component: ProgresoPage },
+      
+      { title: 'Mis Cursos Aprobados', component: AprobadosPage }
+
     ];
 
   }

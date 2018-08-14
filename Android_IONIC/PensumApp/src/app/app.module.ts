@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LogInPage } from "../pages/log-in/log-in";
 import { ProgresoPage } from "../pages/progreso/progreso";
-
+import { AprobadosPage } from "../pages/aprobados/aprobados"
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -17,7 +17,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     LogInPage,
-    ProgresoPage
+    ProgresoPage,
+    AprobadosPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     LogInPage,
-    ProgresoPage
+    ProgresoPage,
+    AprobadosPage
   ],
   providers: [
     StatusBar,
