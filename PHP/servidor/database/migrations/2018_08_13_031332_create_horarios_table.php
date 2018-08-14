@@ -19,7 +19,7 @@ class CreateHorariosTable extends Migration
             $table->string('idCurso');
             $table->integer('idSemestre');
             $table->string('nombreSeccion');
-            $table->primary(['idCurso','idSemestre','nombreSeccion']);
+            
 
             $table->string('idSalon');
 
@@ -27,7 +27,10 @@ class CreateHorariosTable extends Migration
             $table->boolean('estado')->default(true);
 
             $table->foreign('idSalon')->references('idSalon')->on('salons');  
-            $table->foreign('idCurso','idSemestre','nombreSeccion')->references('idCurso','idSemestre','nombreSeccion')->on('Secciones'); 
+            $table->foreign('idCurso','idSemestre','nombreSeccion')->references('idCurso','idSemestre','nombreSeccion')->on('secciones'); 
+            
+            $table->primary(['idCurso','idSemestre','nombreSeccion']);
+            
             /*$table->foreign('idCurso')->references('idCurso')->on('Secciones'); 
             $table->foreign('idSemestre')->references('idSemestre')->on('Secciones');
             $table->foreign('nombreSeccion')->references('nombreSeccion')->on('Secciones');*/
