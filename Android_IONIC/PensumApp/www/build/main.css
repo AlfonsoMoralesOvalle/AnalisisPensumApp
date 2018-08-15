@@ -25693,9 +25693,12 @@ page-progreso .progress-circle {
   padding: 0;
   width: 5em;
   height: 5em;
-  background-color: #F2E9E1;
+  background-color: lightgrey;
   border-radius: 50%;
   line-height: 5em;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 page-progreso .progress-circle:after {
@@ -25708,7 +25711,7 @@ page-progreso .progress-circle:after {
   border-radius: 50%;
   width: 4.3em;
   height: 4.3em;
-  background-color: lightsteelblue;
+  background-color: #CEE3F6;
   content: " ";
 }
 
@@ -25718,7 +25721,7 @@ page-progreso .progress-circle span {
   width: 5em;
   text-align: center;
   display: block;
-  color: #53777A;
+  color: black;
   z-index: 2;
 }
 
@@ -25747,7 +25750,7 @@ page-progreso .value-bar {
   width: 5em;
   height: 5em;
   border-radius: 50%;
-  border: 0.45em solid #53777A;
+  border: 0.45em solid green;
   /*The border is 0.35 but making it larger removes visual artifacts */
   /*background-color: #4D642D;*/
   /* for debug */
@@ -25760,7 +25763,7 @@ page-progreso .progress-circle.over50 .first50-bar {
   position: absolute;
   /*needed for clipping*/
   clip: rect(0, 5em, 5em, 2.5em);
-  background-color: #53777A;
+  background-color: green;
   border-radius: 50%;
   width: 5em;
   height: 5em;
@@ -26272,4 +26275,20 @@ page-progreso .progress-circle.p99 .value-bar {
 page-progreso .progress-circle.p100 .value-bar {
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
+}
+
+page-progreso .iniciocurso {
+  background-color: #E67E22;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+}
+
+page-progreso .detcurso {
+  background-color: #F5B041;
+}
+
+page-progreso .detcurso2 {
+  background-color: #F8C471;
 }
