@@ -26277,18 +26277,14 @@ page-progreso .progress-circle.p100 .value-bar {
   transform: rotate(360deg);
 }
 
-page-progreso .iniciocurso {
-  background-color: #E67E22;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  border-bottom: 0px;
-}
-
 page-progreso .detcurso {
   background-color: #F5B041;
 }
 
 page-progreso .detcurso2 {
   background-color: #F8C471;
+}
+
+page-progreso .req {
+  background-color: #2471A3;
 }

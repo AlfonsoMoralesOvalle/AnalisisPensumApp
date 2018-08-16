@@ -60,127 +60,185 @@
 
 <ion-slides >
   <ion-slide>
-          <ion-list>
-              <ion-scroll style="width:100%; height:100vh" scrollY="true">
-                  <ion-item></ion-item>
-                  <ion-list-header color="primary">
-                      <div >
-                          1 Semestre
-                      </div>
-                  </ion-list-header>
-          <ion-item class = "iniciocurso">
+    <ion-list>
+        <ion-scroll style="width:100%; height:100vh" scrollY="true">
+            <ion-item></ion-item>
+            <ion-list-header color="primary">
+                1 Semestre
+            </ion-list-header>
+            <ion-item >
               <ion-thumbnail item-start >
-                  <div>
-                  <h2 class = "detcurso2">Codigo: 285</h2>
-                  <h2 class = "detcurso">Creditos: 4</h2>
-                  </div>
+                  <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>
+                  <ion-badge class = "detcurso">Creditos: 4</ion-badge>
               </ion-thumbnail>
               <ion-thumbnail item-left >
               <div > 
                   <h2>Sistemas Operativos 2</h2>
-                  <h2>Estado: Aprobado</h2>
+                  <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>
               </div>
               </ion-thumbnail>
               <ion-thumbnail item-right>
-                  <div>
-                  <h2>Requisitos: 282 ,282 ,282 ,282 ,282 ,282 ,282</h2>
-                  </div>
-              </ion-thumbnail>
-        </ion-item>
-        
-        <ion-item class = "iniciocurso">
-            <ion-thumbnail item-start >
-                <h2 class = "detcurso2">Codigo: 285</h2>
-                <h2 class = "detcurso">Creditos: 4</h2>
-            </ion-thumbnail>
-            <ion-thumbnail item-left >
-            <div > 
-                <h2>Sistemas Operativos 2</h2>
-                <h2>Estado: En Curso</h2>
-            </div>
-            </ion-thumbnail>
-            <ion-thumbnail item-right>
-                <h2>Requisitos: 282 ,282 ,282 ,282 ,282 ,282 ,282</h2>
-            </ion-thumbnail>
-          </ion-item>
-          <ion-item class = "iniciocurso">
-              <ion-thumbnail item-start >
-                  <h2 class = "detcurso2">Codigo: 285</h2>
-                  <h2 class = "detcurso">Creditos: 4</h2>
-              </ion-thumbnail>
-              <ion-thumbnail item-left >
-                  <h2>Sistemas Operativos 2</h2>
-                  <h2>Estado: Inactivo</h2>
-              </ion-thumbnail>
-              <ion-thumbnail item-right>
-                  <h2>Requisitos: 282 ,282 ,282 ,282 ,282 ,282 ,282</h2>
+                  <h2>Requisitos:</h2>
+                  <ion-badge class = "req" >282</ion-badge>
+                  <ion-badge class = "req" >283</ion-badge>
+                  <ion-badge class = "req" >284</ion-badge>
+                  <ion-badge class = "req" >285</ion-badge>
+                  <ion-badge class = "req" >286</ion-badge>
               </ion-thumbnail>
             </ion-item>
-        
-          </ion-scroll>
-        </ion-list>
-  </ion-slide>
+            <ion-item >
+                <ion-thumbnail item-start >
+                    <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>
+                    <ion-badge class = "detcurso">Creditos: 4</ion-badge>
+                </ion-thumbnail>
+                <ion-thumbnail item-left >
+                <div > 
+                    <h2>Sistemas Operativos 2</h2>
+                    <ion-badge  color="primary" >Estado: En Curso</ion-badge>
+                </div>
+                </ion-thumbnail>
+                <ion-thumbnail item-right>
+                    <h2>Requisitos:</h2>
+                    <ion-badge class = "req" >282</ion-badge>
+                    <ion-badge class = "req" >283</ion-badge>
+                    <ion-badge class = "req" >284</ion-badge>
+                    <ion-badge class = "req" >285</ion-badge>
+                    <ion-badge class = "req" >286</ion-badge>
+                </ion-thumbnail>
+            </ion-item>
+            <ion-item >
+                <ion-thumbnail item-start >
+                    <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>
+                    <ion-badge class = "detcurso">Creditos: 4</ion-badge>
+                </ion-thumbnail>
+                <ion-thumbnail item-left >
+                <div > 
+                    <h2>Sistemas Operativos 4</h2>
+                    <ion-badge  color="light" >Estado: Inactivo</ion-badge>
+                </div>
+                </ion-thumbnail>
+                <ion-thumbnail item-right>
+                    <h2>Requisitos:</h2>
+                    <ion-badge class = "req" >282</ion-badge>
+                    <ion-badge class = "req" >283</ion-badge>
+                    <ion-badge class = "req" >284</ion-badge>
+                    <ion-badge class = "req" >285</ion-badge>
+                    <ion-badge class = "req" >286</ion-badge>
+                </ion-thumbnail>
+            </ion-item>
+            <ion-item >
+                    <ion-thumbnail item-start >
+                        <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>
+                        <ion-badge class = "detcurso">Creditos: 4</ion-badge>
+                    </ion-thumbnail>
+                    <ion-thumbnail item-left >
+                    <div > 
+                        <h2>Sistemas Operativos 3</h2>
+                        <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>
+                    </div>
+                    </ion-thumbnail>
+                    <ion-thumbnail item-right>
+                        <h2>Requisitos:</h2>
+                        <ion-badge class = "req" >282</ion-badge>
+                        <ion-badge class = "req" >283</ion-badge>
+                        <ion-badge class = "req" >284</ion-badge>
+                        <ion-badge class = "req" >285</ion-badge>
+                        <ion-badge class = "req" >286</ion-badge>
+                    </ion-thumbnail>
+            </ion-item>
+        </ion-scroll>
+    </ion-list>
+</ion-slide>
       
   <ion-slide>
-      <ion-list>
-          <ion-scroll style="width:100%; height:100vh" scrollY="true">
-              <ion-item></ion-item>
-              <ion-list-header color="primary">
-                  <div >
-                      2 Semestre
-                  </div>
-              </ion-list-header>
-      <ion-item class = "iniciocurso">
-          <ion-thumbnail item-start >
-              <div>
-              <h2 class = "detcurso2">Codigo: 285</h2>
-              <h2 class = "detcurso">Creditos: 4</h2>
-              </div>
-          </ion-thumbnail>
-          <ion-thumbnail item-left >
-          <div > 
-              <h2>Sistemas Operativos 2</h2>
-              <h2>Estado: Aprobado</h2>
-          </div>
-          </ion-thumbnail>
-          <ion-thumbnail item-right>
-              <div>
-              <h2>Requisitos: 282 ,282 ,282 ,282 ,282 ,282 ,282</h2>
-              </div>
-          </ion-thumbnail>
-    </ion-item>
-    
-    <ion-item class = "iniciocurso">
-        <ion-thumbnail item-start >
-            <h2 class = "detcurso2">Codigo: 285</h2>
-            <h2 class = "detcurso">Creditos: 4</h2>
-        </ion-thumbnail>
-        <ion-thumbnail item-left >
-        <div > 
-            <h2>Sistemas Operativos 2</h2>
-            <h2>Estado: Aprobado</h2>
-        </div>
-        </ion-thumbnail>
-        <ion-thumbnail item-right>
-            <h2>Requisitos: 282 ,282 ,282 ,282 ,282 ,282 ,282</h2>
-        </ion-thumbnail>
-      </ion-item>
-      <ion-item class = "iniciocurso">
-          <ion-thumbnail item-start >
-              <h2 class = "detcurso2">Codigo: 285</h2>
-              <h2 class = "detcurso">Creditos: 4</h2>
-          </ion-thumbnail>
-          <ion-thumbnail item-left >
-              <h2>Sistemas Operativos 2</h2>
-              <h2>Estado: Aprobado</h2>
-          </ion-thumbnail>
-          <ion-thumbnail item-right>
-              <h2>Requisitos: 282 ,282 ,282 ,282 ,282 ,282 ,282</h2>
-          </ion-thumbnail>
-        </ion-item>
-    
-      </ion-scroll>
-    </ion-list>
+        <ion-list>
+                <ion-scroll style="width:100%; height:100vh" scrollY="true">
+                    <ion-item></ion-item>
+                    <ion-list-header color="primary">
+                        2 Semestre
+                    </ion-list-header>
+                    <ion-item >
+                      <ion-thumbnail item-start >
+                          <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>
+                          <ion-badge class = "detcurso">Creditos: 4</ion-badge>
+                      </ion-thumbnail>
+                      <ion-thumbnail item-left >
+                      <div > 
+                          <h2>Sistemas Operativos 2</h2>
+                          <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>
+                      </div>
+                      </ion-thumbnail>
+                      <ion-thumbnail item-right>
+                          <h2>Requisitos:</h2>
+                          <ion-badge class = "req" >282</ion-badge>
+                          <ion-badge class = "req" >283</ion-badge>
+                          <ion-badge class = "req" >284</ion-badge>
+                          <ion-badge class = "req" >285</ion-badge>
+                          <ion-badge class = "req" >286</ion-badge>
+                      </ion-thumbnail>
+                    </ion-item>
+                    <ion-item >
+                        <ion-thumbnail item-start >
+                            <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>
+                            <ion-badge class = "detcurso">Creditos: 4</ion-badge>
+                        </ion-thumbnail>
+                        <ion-thumbnail item-left >
+                        <div > 
+                            <h2>Sistemas Operativos 2</h2>
+                            <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>
+                        </div>
+                        </ion-thumbnail>
+                        <ion-thumbnail item-right>
+                            <h2>Requisitos:</h2>
+                            <ion-badge class = "req" >282</ion-badge>
+                            <ion-badge class = "req" >283</ion-badge>
+                            <ion-badge class = "req" >284</ion-badge>
+                            <ion-badge class = "req" >285</ion-badge>
+                            <ion-badge class = "req" >286</ion-badge>
+                        </ion-thumbnail>
+                    </ion-item>
+                    <ion-item >
+                        <ion-thumbnail item-start >
+                            <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>
+                            <ion-badge class = "detcurso">Creditos: 4</ion-badge>
+                        </ion-thumbnail>
+                        <ion-thumbnail item-left >
+                        <div > 
+                            <h2>Sistemas Operativos 4</h2>
+                            <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>
+                        </div>
+                        </ion-thumbnail>
+                        <ion-thumbnail item-right>
+                            <h2>Requisitos:</h2>
+                            <ion-badge class = "req" >282</ion-badge>
+                            <ion-badge class = "req" >283</ion-badge>
+                            <ion-badge class = "req" >284</ion-badge>
+                            <ion-badge class = "req" >285</ion-badge>
+                            <ion-badge class = "req" >286</ion-badge>
+                        </ion-thumbnail>
+                    </ion-item>
+                    <ion-item >
+                            <ion-thumbnail item-start >
+                                <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>
+                                <ion-badge class = "detcurso">Creditos: 4</ion-badge>
+                            </ion-thumbnail>
+                            <ion-thumbnail item-left >
+                            <div > 
+                                <h2>Sistemas Operativos 3</h2>
+                                <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>
+                            </div>
+                            </ion-thumbnail>
+                            <ion-thumbnail item-right>
+                                <h2>Requisitos:</h2>
+                                <ion-badge class = "req" >282</ion-badge>
+                                <ion-badge class = "req" >283</ion-badge>
+                                <ion-badge class = "req" >284</ion-badge>
+                                <ion-badge class = "req" >285</ion-badge>
+                                <ion-badge class = "req" >286</ion-badge>
+                            </ion-thumbnail>
+                    </ion-item>
+                </ion-scroll>
+            </ion-list>
   </ion-slide>
       
   <ion-slide >
