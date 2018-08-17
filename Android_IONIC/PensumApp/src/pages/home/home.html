@@ -40,4 +40,24 @@
             Sab
         </ion-segment-button>
     </ion-segment>
+
+    <div [ngSwitch]="days">
+        <!--MARTES-->
+        <div *ngSwitchCase="'lun'">
+            <div *ngFor="let l of lunes">
+                <ion-list>
+                    <ion-list-header color="light">
+                        {{l.Hora}}:00
+                    </ion-list-header>
+                    <div *ngFor="let c of l.Cursos">
+                        <button ion-item>{{c.Curso}}, {{c.Edificio}}</button>
+                    </div>
+                </ion-list>
+            </div>
+        </div>
+        <!--MARTES-->
+        <div *ngSwitchCase="'mar'">
+            
+        </div>
+    </div>
 </ion-content>
