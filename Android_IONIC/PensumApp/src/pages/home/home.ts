@@ -12,6 +12,7 @@ export class HomePage {
 
     horario
     lunes : any;
+    viernes: any;
     constructor(public navCtrl: NavController, private modal: ModalController, public proveedor:ServiciosProvider, public ej:EjemploProvider) {}
 
     //ABRE EL MODAL PARA PODER AGREGAR UN CURSO NUEVO
@@ -29,6 +30,13 @@ export class HomePage {
     obtenerDatosEjemplo()
     {
         this.lunes = this.ej.obtenerCursosPorDia();
+        this.viernes = this.ej.obtenerCursosViernes();
+    }
+
+    quitaDeOpciones(idcurso, seccion)
+    {
+        //DEBE QUITAR OTRAS SECCIONAS EXCEPTO SECCION
+        
     }
 
 }

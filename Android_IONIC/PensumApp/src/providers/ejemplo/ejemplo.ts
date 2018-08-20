@@ -49,11 +49,15 @@ export class EjemploProvider {
         "Hora": 7,
         "Cursos":[
           {
+            "Id": 1,
+            "Seccion": "B+",
             "Curso": "Compiladores 2",
             "Edificio": "T3"
           }
           ,
           {
+            "Id":1,
+            "Seccion":"A",
             "Curso": "Compiladores 2",
             "Edificio": "T3"
           }
@@ -64,18 +68,66 @@ export class EjemploProvider {
         "Hora": 8,
         "Cursos":[
           {
-            "Curso": "Uno",
+            "Id":2,
+            "Seccion":"A",
+            "Curso": "Analisis y Diseno 1",
             "Edificio": "T3"
           }
           ,
           {
-            "Curso": "Tres",
+            "Id":3,
+            "Seccion":"A",
+            "Curso": "Seminario de Sistemas",
             "Edificio": "T3"
           }
         ]
       }
     ]
     return lunes;
+  }
+
+  obtenerCursosViernes()
+  {
+    var viernes = [
+      {
+        "Hora": 7,
+        "Cursos":[
+          {
+            "Id": 1,
+            "Seccion": "B+",
+            "Curso": "Compiladores 2",
+            "Edificio": "T3"
+          }
+          ,
+          {
+            "Id":1,
+            "Seccion":"A",
+            "Curso": "Compiladores 2",
+            "Edificio": "T3"
+          }
+        ]
+      }
+      ,
+      {
+        "Hora": 8,
+        "Cursos":[
+          {
+            "Id":4,
+            "Seccion":"B",
+            "Curso": "Arquitectura de Computadores 1",
+            "Edificio": "T3"
+          }
+          ,
+          {
+            "Id":3,
+            "Seccion":"B",
+            "Curso": "Seminario de Sistemas",
+            "Edificio": "T3"
+          }
+        ]
+      }
+    ]
+    return viernes;
   }
 
 

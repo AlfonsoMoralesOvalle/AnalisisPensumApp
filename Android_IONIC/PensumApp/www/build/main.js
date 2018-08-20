@@ -246,10 +246,14 @@ var EjemploProvider = /** @class */ (function () {
                 "Hora": 7,
                 "Cursos": [
                     {
+                        "Id": 1,
+                        "Seccion": "B+",
                         "Curso": "Compiladores 2",
                         "Edificio": "T3"
                     },
                     {
+                        "Id": 1,
+                        "Seccion": "A",
                         "Curso": "Compiladores 2",
                         "Edificio": "T3"
                     }
@@ -259,11 +263,15 @@ var EjemploProvider = /** @class */ (function () {
                 "Hora": 8,
                 "Cursos": [
                     {
-                        "Curso": "Uno",
+                        "Id": 2,
+                        "Seccion": "A",
+                        "Curso": "Analisis y Diseno 1",
                         "Edificio": "T3"
                     },
                     {
-                        "Curso": "Tres",
+                        "Id": 3,
+                        "Seccion": "A",
+                        "Curso": "Seminario de Sistemas",
                         "Edificio": "T3"
                     }
                 ]
@@ -271,12 +279,50 @@ var EjemploProvider = /** @class */ (function () {
         ];
         return lunes;
     };
+    EjemploProvider.prototype.obtenerCursosViernes = function () {
+        var viernes = [
+            {
+                "Hora": 7,
+                "Cursos": [
+                    {
+                        "Id": 1,
+                        "Seccion": "B+",
+                        "Curso": "Compiladores 2",
+                        "Edificio": "T3"
+                    },
+                    {
+                        "Id": 1,
+                        "Seccion": "A",
+                        "Curso": "Compiladores 2",
+                        "Edificio": "T3"
+                    }
+                ]
+            },
+            {
+                "Hora": 8,
+                "Cursos": [
+                    {
+                        "Id": 4,
+                        "Seccion": "B",
+                        "Curso": "Arquitectura de Computadores 1",
+                        "Edificio": "T3"
+                    },
+                    {
+                        "Id": 3,
+                        "Seccion": "B",
+                        "Curso": "Seminario de Sistemas",
+                        "Edificio": "T3"
+                    }
+                ]
+            }
+        ];
+        return viernes;
+    };
     EjemploProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
     ], EjemploProvider);
     return EjemploProvider;
-    var _a;
 }());
 
 //# sourceMappingURL=ejemplo.js.map
@@ -561,10 +607,11 @@ var HomePage = /** @class */ (function () {
     //VA A OBTENER LOS DATOS
     HomePage.prototype.obtenerDatosEjemplo = function () {
         this.lunes = this.ej.obtenerCursosPorDia();
+        this.viernes = this.ej.obtenerCursosViernes();
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton color="lblue">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n        <ion-icon name="calendar"></ion-icon>\n\n        Mi Horario\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <ion-fab bottom right>\n\n        <button ion-fab (click)="addCourse()" color="primary">\n\n            <ion-icon name="add-circle"></ion-icon>\n\n        </button>\n\n    </ion-fab>\n\n\n\n    <!--\n\n        AQUI EMPIEZA LA NUEVA INTERFAZ\n\n    -->\n\n    <ion-segment [(ngModel)]="days">\n\n        <ion-segment-button value="lun">\n\n            Lun\n\n        </ion-segment-button>\n\n        <ion-segment-button value="mar">\n\n            Mar\n\n        </ion-segment-button>\n\n        <ion-segment-button value="mie">\n\n            Mierc\n\n        </ion-segment-button>\n\n        <ion-segment-button value="juv">\n\n            Jue\n\n        </ion-segment-button>\n\n        <ion-segment-button value="vie">\n\n            Vier\n\n        </ion-segment-button>\n\n        <ion-segment-button value="sab">\n\n            Sab\n\n        </ion-segment-button>\n\n    </ion-segment>\n\n\n\n    <div [ngSwitch]="days">\n\n        <!--MARTES-->\n\n        <div *ngSwitchCase="\'lun\'">\n\n            <div *ngFor="let l of lunes">\n\n                <ion-list>\n\n                    <ion-list-header color="light">\n\n                        {{l.Hora}}:00\n\n                    </ion-list-header>\n\n                    <div *ngFor="let c of l.Cursos">\n\n                        <button ion-item>{{c.Curso}}, {{c.Edificio}}</button>\n\n                    </div>\n\n                </ion-list>\n\n            </div>\n\n        </div>\n\n        <!--MARTES-->\n\n        <div *ngSwitchCase="\'mar\'">\n\n            \n\n        </div>\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar hideBackButton color="lblue">\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>\n\n        <ion-icon name="calendar"></ion-icon>\n\n        Mi Horario\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <ion-fab bottom right>\n\n        <button ion-fab (click)="addCourse()" color="primary">\n\n            <ion-icon name="add-circle"></ion-icon>\n\n        </button>\n\n    </ion-fab>\n\n\n\n    <!--\n\n        AQUI EMPIEZA LA NUEVA INTERFAZ\n\n    -->\n\n    <ion-segment [(ngModel)]="days">\n\n        <ion-segment-button value="lun">\n\n            Lun\n\n        </ion-segment-button>\n\n        <ion-segment-button value="mar">\n\n            Mar\n\n        </ion-segment-button>\n\n        <ion-segment-button value="mie">\n\n            Mierc\n\n        </ion-segment-button>\n\n        <ion-segment-button value="juv">\n\n            Jue\n\n        </ion-segment-button>\n\n        <ion-segment-button value="vie">\n\n            Vier\n\n        </ion-segment-button>\n\n        <ion-segment-button value="sab">\n\n            Sab\n\n        </ion-segment-button>\n\n    </ion-segment>\n\n\n\n    <div [ngSwitch]="days">\n\n        <!--MARTES-->\n\n        <div *ngSwitchCase="\'lun\'">\n\n            <div *ngFor="let l of lunes">\n\n                <ion-list>\n\n                    <ion-list-header color="dark">\n\n                        {{l.Hora}}:00\n\n                    </ion-list-header>\n\n                    <div *ngFor="let c of l.Cursos">\n\n                        <ion-card>\n\n                            <ion-card-header>\n\n                                <ion-badge color="primary">{{c.Curso}}</ion-badge>\n\n                            </ion-card-header>\n\n                            <ion-card-content>\n\n                                <p>Edificio: {{c.Edificio}}</p>\n\n                                <p>Seccion: {{c.Seccion}}</p>\n\n                                <p><button ion-button full icon-start color="secondary" (click)=""><ion-icon name="ios-add"></ion-icon> Asignar A Este Periodo</button></p>\n\n                            </ion-card-content>\n\n                        </ion-card>\n\n                    </div>\n\n                </ion-list>\n\n            </div>\n\n        </div>\n\n        <!--VIERNES-->\n\n        <div *ngSwitchCase="\'vie\'">\n\n            <div *ngFor="let v of viernes">\n\n                <ion-list>\n\n                    <ion-list-header color="dark">\n\n                        {{v.Hora}}:00\n\n                    </ion-list-header>\n\n                    <div *ngFor="let c of v.Cursos">\n\n                        <ion-card>\n\n                            <ion-card-header>\n\n                                <ion-badge color="primary">{{c.Curso}}</ion-badge>\n\n                            </ion-card-header>\n\n                            <ion-card-content>\n\n                                <p>Edificio: {{c.Edificio}}</p>\n\n                                <p>Seccion: {{c.Seccion}}</p>\n\n                                <p><button ion-button full icon-start color="secondary" (click)=""><ion-icon name="ios-add"></ion-icon> Asignar A Este Periodo</button></p>\n\n                            </ion-card-content>\n\n                        </ion-card>\n\n                    </div>\n\n                </ion-list>\n\n            </div>\n\n        </div>\n\n\n\n        <!--JUEVES-->\n\n\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__["a" /* ServiciosProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_ejemplo_ejemplo__["a" /* EjemploProvider */]])
     ], HomePage);

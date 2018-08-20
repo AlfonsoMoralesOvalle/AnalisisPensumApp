@@ -46,18 +46,48 @@
         <div *ngSwitchCase="'lun'">
             <div *ngFor="let l of lunes">
                 <ion-list>
-                    <ion-list-header color="light">
+                    <ion-list-header color="dark">
                         {{l.Hora}}:00
                     </ion-list-header>
                     <div *ngFor="let c of l.Cursos">
-                        <button ion-item>{{c.Curso}}, {{c.Edificio}}</button>
+                        <ion-card>
+                            <ion-card-header>
+                                <ion-badge color="primary">{{c.Curso}}</ion-badge>
+                            </ion-card-header>
+                            <ion-card-content>
+                                <p>Edificio: {{c.Edificio}}</p>
+                                <p>Seccion: {{c.Seccion}}</p>
+                                <p><button ion-button full icon-start color="secondary" (click)=""><ion-icon name="ios-add"></ion-icon> Asignar A Este Periodo</button></p>
+                            </ion-card-content>
+                        </ion-card>
                     </div>
                 </ion-list>
             </div>
         </div>
-        <!--MARTES-->
-        <div *ngSwitchCase="'mar'">
-            
+        <!--VIERNES-->
+        <div *ngSwitchCase="'vie'">
+            <div *ngFor="let v of viernes">
+                <ion-list>
+                    <ion-list-header color="dark">
+                        {{v.Hora}}:00
+                    </ion-list-header>
+                    <div *ngFor="let c of v.Cursos">
+                        <ion-card>
+                            <ion-card-header>
+                                <ion-badge color="primary">{{c.Curso}}</ion-badge>
+                            </ion-card-header>
+                            <ion-card-content>
+                                <p>Edificio: {{c.Edificio}}</p>
+                                <p>Seccion: {{c.Seccion}}</p>
+                                <p><button ion-button full icon-start color="secondary" (click)=""><ion-icon name="ios-add"></ion-icon> Asignar A Este Periodo</button></p>
+                            </ion-card-content>
+                        </ion-card>
+                    </div>
+                </ion-list>
+            </div>
         </div>
+
+        <!--JUEVES-->
+
     </div>
 </ion-content>
