@@ -16,6 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get ('obtenerCursosQuePuedeLlevar'       ,'cursos_controller@getCursosQuePuedeLlevar');
+Route::post ('post_obtenerCursosQuePuedeLlevar' ,'cursos_controller@getCursosQuePuedeLlevarPost');
 /* Route::middleware('users','UserController',['only'=> ['index']]);
 });
  */
