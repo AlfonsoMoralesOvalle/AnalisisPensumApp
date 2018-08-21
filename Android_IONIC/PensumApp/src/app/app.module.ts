@@ -13,7 +13,11 @@ import { ProgresoPage } from "../pages/progreso/progreso";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServiciosProvider } from '../providers/servicios/servicios';
+<<<<<<< HEAD
 import { UserServiceProvider } from '../providers/user-service/user-service';
+=======
+import { HttpClientModule } from '@angular/common/http';
+>>>>>>> a06be85251126d2781e9714d5c5dd0fc3f8132d0
 
 @NgModule({
   declarations: [
@@ -26,8 +30,13 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
   ],
   imports: [
     BrowserModule,
+<<<<<<< HEAD
     HttpClientModule,
     IonicModule.forRoot(MyApp)
+=======
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
+>>>>>>> a06be85251126d2781e9714d5c5dd0fc3f8132d0
   ],
   bootstrap: [IonicApp],
   entryComponents: [
