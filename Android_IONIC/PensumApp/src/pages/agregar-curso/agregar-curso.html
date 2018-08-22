@@ -1,0 +1,55 @@
+<!--
+  Generated template for the AgregarCursoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      Agregar Curso
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="cerrar()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+        <h1>Escoje tu Curso:</h1>
+    </ion-card-header>
+    <ion-list>
+        <ion-item>
+            <ion-label>Curso</ion-label>
+            <ion-select [(ngModel)]="curso">
+              <ion-option value="Compiladores 2">Compiladores 2</ion-option>
+              <ion-option value="Analisis 1">Analisis y Diseno 1</ion-option>
+              <ion-option value="Redes 1">Redes 1</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Horario</ion-label>
+            <ion-select [(ngModel)]="hora">
+              <ion-option value="1">Lunes - Viernes 7:00 </ion-option>
+              <ion-option value="2">Sabado 12:00</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Seccion</ion-label>
+            <ion-select [(ngModel)]="hora">
+              <ion-option value="1">A</ion-option>
+              <ion-option value="2">B</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+          <button ion-button full> Agregar a Horario</button>
+        </ion-item>
+    </ion-list>
+  </ion-card>
+
+</ion-content>

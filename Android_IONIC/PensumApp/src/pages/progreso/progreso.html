@@ -5,15 +5,83 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar hideBackButton>
+    <ion-navbar hideBackButton color="lblue">
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <ion-title>Progreso de Pensum</ion-title>
+      <ion-title>
+        <ion-icon name="bicycle"></ion-icon>
+        Progreso de Pensum
+      </ion-title>
     </ion-navbar>
   </ion-header>
 
 
 <ion-content padding>
+  <ion-refresher (ionRefresh)="refrescar($event)">
+      <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list no-border >
+
+    <ion-list-header>
+        Mi Progreso
+    </ion-list-header>
+    
+    <ion-item>
+      <ion-thumbnail item-left>
+        <!-- progress-circle porcentaje donde porcentaje debe ser un numero entero -->
+        <div class="progress-circle p{{data.porcentaje}}">
+          <span>{{data.porcentaje}}%</span>
+          <div class="left-half-clipper">
+            <div class="first50-bar"></div>
+            <div class="value-bar"></div>
+          </div>
+        </div>
+      </ion-thumbnail>
+      <ion-thumbnail item-right>
+        <h2>Sigue asi llevas el {{data.porcentaje}} de</h2>
+        <h2> Ingenieria en ciencias y sistemas</h2>
+      </ion-thumbnail>
+    </ion-item>
+
+    <ion-item>
+      Creditos
+      <ion-icon name='md-card' item-left></ion-icon>
+      <ion-badge item-right>{{data.numCreditos}}</ion-badge>
+    </ion-item>
+    
+    <ion-item>
+        Cursos Aprobados
+        <ion-icon name='ios-bookmark' item-left></ion-icon>
+        <ion-badge  color="secondary" item-right>{{data.numAprobados}}</ion-badge>
+    </ion-item>
+    
+</ion-list>
+
+
+<ion-list>
+    <ion-list-header color="dark">
+        !Cursos que puedo seguir!
+    </ion-list-header>
+    <!--
+    <div *ngFor="let c of cursos">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/cursos.png">
+        </ion-thumbnail>
+        <h2>{{c.Nombre}}</h2>
+        <p>Codigo: {{c.idCurso}}</p>
+        <div *ngIf="existe(c.idCurso)">
+          <button ion-button clear item-end color="danger" (click)="quitarInteresado(c.idCurso)">Quitar de Interesados</button>
+        </div>
+        <div *ngIf="!existe(c.idCurso)">
+          <button ion-button clear item-end (click)="agregarInteresado(c.idCurso)">Me Interesa Seguir</button>
+        </div>
+      </ion-item>
+    </div>
+
+  -->
+
+  </ion-list>
 
 </ion-content>

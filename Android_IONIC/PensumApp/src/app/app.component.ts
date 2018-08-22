@@ -7,7 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LogInPage } from '../pages/log-in/log-in';
 import { ProgresoPage } from "../pages/progreso/progreso";
-
+import { VerPensumPage } from "../pages/ver-pensum/ver-pensum";
+ 
 @Component({
   templateUrl: 'app.html'
 })
@@ -26,7 +27,9 @@ export class MyApp {
     this.pages = [
       { title: 'Ver Mi Horario', component: HomePage },
       //{ title: 'List', component: ListPage }
-      { title: 'Ver Mi Progreso', component: ProgresoPage }
+      { title: 'Ver Mi Progreso', component: ProgresoPage },
+      { title: 'Log Out', component: LogInPage },
+      { title: 'Ver Pensum', component: VerPensumPage }
     ];
 
   }
@@ -43,6 +46,13 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    if(page == 'Log Out')
+    {
+      this.nav.popToRoot();
+    }
+    else
+    {
+      this.nav.setRoot(page.component);
+    }
   }
 }

@@ -1,85 +1,57 @@
 <ion-header>
-  <ion-navbar hideBackButton>
+  <ion-navbar hideBackButton color="lblue">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Horarios</ion-title>
+    <ion-title>
+        <ion-icon name="calendar"></ion-icon>
+        Mi Horario
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-grid>
-        <ion-row>
-            <ion-col col-sm-2><ion-label text-center>Hora</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>Lun</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>Mar</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>Mie</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>Juv</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>Vie</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>Sab</ion-label></ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-sm-2><ion-label text-center>07:00</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-sm-2><ion-label text-center>08:00</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-sm-2><ion-label text-center>09:00</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-sm-2><ion-label text-center>10:00</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-sm-2><ion-label text-center>11:00</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-sm-2><ion-label text-center>12:00</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col col-sm-2><ion-label text-center>13:00</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-            <ion-col col-sm-2><ion-label text-center>----</ion-label></ion-col>
-        </ion-row>
-    </ion-grid>
+    <ion-fab bottom right>
+        <button ion-fab (click)="addCourse()" color="primary">
+            <ion-icon name="add-circle"></ion-icon>
+        </button>
+    </ion-fab>
+
+    <!--
+        AQUI EMPIEZA LA NUEVA INTERFAZ
+    -->
+    <ion-segment [(ngModel)]="days">
+        <ion-segment-button value="lun">
+            Lun
+        </ion-segment-button>
+        <ion-segment-button value="mar">
+            Mar
+        </ion-segment-button>
+        <ion-segment-button value="mie">
+            Mierc
+        </ion-segment-button>
+        <ion-segment-button value="juv">
+            Jue
+        </ion-segment-button>
+        <ion-segment-button value="vie">
+            Vier
+        </ion-segment-button>
+        <ion-segment-button value="sab">
+            Sab
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="days">
+        <!--MARTES-->
+        <div *ngSwitchCase="'lun'">
+            
+        </div>
+        <!--VIERNES-->
+        <div *ngSwitchCase="'vie'">
+           
+        </div>
+
+        <!--JUEVES-->
+
+    </div>
 </ion-content>
