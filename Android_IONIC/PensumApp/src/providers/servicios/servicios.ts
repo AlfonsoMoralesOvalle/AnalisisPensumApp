@@ -13,7 +13,7 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class ServiciosProvider {
-    dominio = "https://596378e7.ngrok.io"
+    dominio = "https://vast-waters-26850.herokuapp.com"
     constructor(public helper:Http) {
         console.log('Hello ServiciosProvider Provider');
     }

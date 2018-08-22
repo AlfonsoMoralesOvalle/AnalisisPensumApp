@@ -586,11 +586,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ServiciosProvider = /** @class */ (function () {
     function ServiciosProvider(helper) {
         this.helper = helper;
+        this.dominio = "https://vast-waters-26850.herokuapp.com";
         console.log('Hello ServiciosProvider Provider');
     }
     //FUNCION ENCARGADA DE PODER TRAER EL PENSUM NECESARIO
     ServiciosProvider.prototype.getPensum = function (idSemestre) {
-        var url = "https://596378e7.ngrok.io/api/get_obtenerCursosPensum";
+        var url = this.dominio + "/api/get_obtenerCursosPensum";
         var postData = new FormData();
         postData.append('carnet', '201503476');
         postData.append('idCarrera', '09');
@@ -599,7 +600,7 @@ var ServiciosProvider = /** @class */ (function () {
     };
     //MARCA EL EL CURSO COMO ARPOBADO
     ServiciosProvider.prototype.marcarAprobado = function (idSemestre, idCurso) {
-        var url = "https://596378e7.ngrok.io/api/pensum_asignarCursosAprobadosPensum";
+        var url = this.dominio + "/api/pensum_asignarCursosAprobadosPensum";
         var postData = new FormData();
         postData.append('carnet', '201503476');
         postData.append('idCarrera', '09');
@@ -609,7 +610,7 @@ var ServiciosProvider = /** @class */ (function () {
     };
     //DESMARCAR UN CURSO COMO APROBADO
     ServiciosProvider.prototype.desmacarAprobado = function (idSemestre, idCurso) {
-        var url = "https://596378e7.ngrok.io/api/pensum_desasignarCursosAprobadosPensum";
+        var url = this.dominio + "/api/pensum_desasignarCursosAprobadosPensum";
         var postData = new FormData();
         postData.append('carnet', '201503476');
         postData.append('idCarrera', '09');
@@ -618,7 +619,7 @@ var ServiciosProvider = /** @class */ (function () {
         return this.helper.post(url, postData).map(function (res) { return res.json(); });
     };
     ServiciosProvider.prototype.getResumenProgreso = function () {
-        var url = "https://596378e7.ngrok.io/api/obtenerProgresoDeLaCarrera";
+        var url = this.dominio + "/api/obtenerProgresoDeLaCarrera";
         var postData = new FormData();
         postData.append('carnet', '201503476');
         postData.append('idCarrera', '09');
