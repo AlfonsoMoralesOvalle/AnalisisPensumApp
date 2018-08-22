@@ -19,7 +19,7 @@ class CreateUsuariosTable extends Migration
             $table->string('password');
             $table->string('nombre');
             $table->boolean('estado')->default(true);
-            $table->timestamps();
+            $table->timestamps();//opcional
         });
     }
 

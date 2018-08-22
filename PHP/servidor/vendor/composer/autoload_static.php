@@ -366,6 +366,8 @@ class ComposerStaticInit406fc25be96a119b2c1d01b499efe3ef
         'App\\comentario' => __DIR__ . '/../..' . '/app/comentario.php',
         'App\\curso' => __DIR__ . '/../..' . '/app/curso.php',
         'App\\cursosadesbloquear' => __DIR__ . '/../..' . '/app/cursosadesbloquear.php',
+        'App\\cursospostr' => __DIR__ . '/../..' . '/app/cursospostr.php',
+        'App\\cursospostrequisito' => __DIR__ . '/../..' . '/app/cursospostrequisito.php',
         'App\\horario' => __DIR__ . '/../..' . '/app/horario.php',
         'App\\seccione' => __DIR__ . '/../..' . '/app/seccione.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',

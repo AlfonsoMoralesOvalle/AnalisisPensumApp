@@ -1,0 +1,25 @@
+
+    Base de datos
+DB_HOST=db4free.net
+DB_DATABASE=dbanalisis
+DB_USERNAME=usuario_analisis
+DB_PASSWORD=123dbanalisis
+
+git push heroku master
+heroku run bash
+
+
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=DB_AnalisisPensum
+DB_USERNAME=root
+DB_PASSWORD=JhosefCaceres
+
+
+DB_CONNECTION=mysql
+DB_HOST=db4free.net
+DB_PORT=3306
+DB_DATABASE=dbanalisis
+DB_USERNAME=usuario_analisis
+DB_PASSWORD=123dbanalisis

@@ -40,6 +40,8 @@ return array(
     'App\\comentario' => $baseDir . '/app/comentario.php',
     'App\\curso' => $baseDir . '/app/curso.php',
     'App\\cursosadesbloquear' => $baseDir . '/app/cursosadesbloquear.php',
+    'App\\cursospostr' => $baseDir . '/app/cursospostr.php',
+    'App\\cursospostrequisito' => $baseDir . '/app/cursospostrequisito.php',
     'App\\horario' => $baseDir . '/app/horario.php',
     'App\\seccione' => $baseDir . '/app/seccione.php',
     'Asm89\\Stack\\Cors' => $vendorDir . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
