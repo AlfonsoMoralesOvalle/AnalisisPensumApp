@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { Http, Response } from '@angular/http';
+import 'rxjs/add/operator/map';
+//import { HttpClientModule } from '@angular/common/http';
+//import { HTTP } from '@ionic-native/http';
 
 /*
   Generated class for the ServiciosProvider provider.
@@ -10,13 +13,58 @@ import { HttpClientModule } from '@angular/common/http';
 */
 @Injectable()
 export class ServiciosProvider {
-
-    constructor(public http: HttpClient) {
+    dominio = "https://596378e7.ngrok.io"
+    constructor(public helper:Http) {
         console.log('Hello ServiciosProvider Provider');
     }
 
-    obtenerHorario(){
-        return this.http.get('https://api.myjson.com/bins/ldkks');
+    pensum : any
+    //FUNCION ENCARGADA DE PODER TRAER EL PENSUM NECESARIO
+    getPensum(idSemestre)
+    {
+        
+        var url = this.dominio+"/api/get_obtenerCursosPensum";
+        let postData = new FormData();
+        postData.append('carnet','201503476');
+        postData.append('idCarrera','09');
+        postData.append('idSemestre',idSemestre);
+        
+        return this.helper.post(url, postData).map((res:Response)=>res.json());
     }
+
+    //MARCA EL EL CURSO COMO ARPOBADO
+    marcarAprobado(idSemestre, idCurso)
+    {
+        var url = this.dominio+"/api/pensum_asignarCursosAprobadosPensum";
+        let postData = new FormData();
+        postData.append('carnet','201503476');
+        postData.append('idCarrera','09');
+        postData.append('idCurso', idCurso);
+        postData.append('idSemestre',idSemestre);
+        return this.helper.post(url, postData).map((res:Response)=>res.json());
+    }
+
+    //DESMARCAR UN CURSO COMO APROBADO
+    desmacarAprobado(idSemestre, idCurso)
+    {
+        var url = this.dominio+"/api/pensum_desasignarCursosAprobadosPensum";
+        let postData = new FormData();
+        postData.append('carnet','201503476');
+        postData.append('idCarrera','09');
+        postData.append('idCurso', idCurso);
+        postData.append('idSemestre',idSemestre);
+        return this.helper.post(url, postData).map((res:Response)=>res.json());
+    }
+
+    getResumenProgreso()
+    {
+        var url = this.dominio+"/api/obtenerProgresoDeLaCarrera";
+        let postData = new FormData();
+        postData.append('carnet','201503476');
+        postData.append('idCarrera','09');
+        return this.helper.post(url, postData).map((res:Response)=>res.json());
+    }
+
+
 
 }

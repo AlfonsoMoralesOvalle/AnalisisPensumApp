@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 /*
   Generated class for the EjemploProvider provider.
 
@@ -10,124 +9,87 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class EjemploProvider {
 
+  data : any;
+
+  interesados = []
   constructor(public http: HttpClient) {
     console.log('Hello EjemploProvider Provider');
   }
 
-
-  //DATOS DE PRUEBA QUE VAN A SERVIR PARA LA VISTA
-  obtenerIds()
+  datos : any
+  //POST DATA
+  envioPorPost()
   {
-    var cursos = [
-      {
-        "idCurso":1,
-        "Secciones":["A","B+","B-"]
-      }
-      ,
-      {
-        "idCurso":2,
-        "Secciones":["N"]
-      }
-      ,
-      {
-        "idCurso":3,
-        "Secciones":["N"]
-      }
-      ,
-      {
-        "idCurso":4,
-        "Secciones":["N","A"]
-      }
-    ]
-    return cursos;
+   /* var url = "https://vast-waters-26850.herokuapp.com/api/post_obtenerCursosQuePuedeLlevar";
+    let postData = new FormData();
+    postData.append('carne','201503476');
+    postData.append('idCarrera','09');
+    this.data = this.http.post(url, postData);
+    this.data.subscribe(data =>{
+      console.log(data);
+    });*/
+    
+    /*var url = "https://vast-waters-26850.herokuapp.com/api/obtenerCursosQuePuedeLlevar";
+    this.data = this.http.get(url);
+    this.data.subscribe(
+      (data)=>{this.data = data; console.log(data);},
+      (error)=>{console.log("error");}
+    );*/
+  }
+  
+  //OBTENIENDO LOS CURSOS QUE PUEDO SEGUR PARA LA VISTA DE QUE PUEDO SEGUIR
+  getCursosQuePuedoSeguir()
+  {
+    
+    var url = "https://vast-waters-26850.herokuapp.com/api/obtenerCursosQuePuedeLlevar";
+    this.http.get(url).subscribe(data =>{
+      this.datos = data;
+    });
+    
+    return this.datos;
   }
 
-  obtenerCursosPorDia()
+  //PARA PODER LLEVAR EL CONTROL DE LOS CURSOS QUE YA DECIDI SEGUIR
+  agregarInteresado(idCurso)
   {
-    var lunes = [
+    var bandera = false;
+    this.interesados.forEach(function(value){
+      if(value.idCurso == idCurso)
       {
-        "Hora": 7,
-        "Cursos":[
-          {
-            "Id": 1,
-            "Seccion": "B+",
-            "Curso": "Compiladores 2",
-            "Edificio": "T3"
-          }
-          ,
-          {
-            "Id":1,
-            "Seccion":"A",
-            "Curso": "Compiladores 2",
-            "Edificio": "T3"
-          }
-        ]
+        bandera = true;
       }
-      ,
-      {
-        "Hora": 8,
-        "Cursos":[
-          {
-            "Id":2,
-            "Seccion":"A",
-            "Curso": "Analisis y Diseno 1",
-            "Edificio": "T3"
-          }
-          ,
-          {
-            "Id":3,
-            "Seccion":"A",
-            "Curso": "Seminario de Sistemas",
-            "Edificio": "T3"
-          }
-        ]
-      }
-    ]
-    return lunes;
+    });
+    if(!bandera)
+    {
+      this.interesados.push({"idCurso":idCurso});
+    }
+    console.log(JSON.stringify(this.interesados));
   }
 
-  obtenerCursosViernes()
+  existeInteresado(idCurso)
   {
-    var viernes = [
+    var bandera = false;
+    this.interesados.forEach(function(value){
+      if(value.idCurso == idCurso)
       {
-        "Hora": 7,
-        "Cursos":[
-          {
-            "Id": 1,
-            "Seccion": "B+",
-            "Curso": "Compiladores 2",
-            "Edificio": "T3"
-          }
-          ,
-          {
-            "Id":1,
-            "Seccion":"A",
-            "Curso": "Compiladores 2",
-            "Edificio": "T3"
-          }
-        ]
+        bandera = true;
       }
-      ,
+    });
+    return bandera;
+  }
+
+  quitarDeInteresados(idCurso)
+  {
+    var index = 0;
+    var aux = 0;
+    this.interesados.forEach(function(value){
+      if(value.idCurso == idCurso)
       {
-        "Hora": 8,
-        "Cursos":[
-          {
-            "Id":4,
-            "Seccion":"B",
-            "Curso": "Arquitectura de Computadores 1",
-            "Edificio": "T3"
-          }
-          ,
-          {
-            "Id":3,
-            "Seccion":"B",
-            "Curso": "Seminario de Sistemas",
-            "Edificio": "T3"
-          }
-        ]
+        index = aux;
       }
-    ]
-    return viernes;
+      aux++;
+    });
+    this.interesados.splice(index, 1);
   }
 
 

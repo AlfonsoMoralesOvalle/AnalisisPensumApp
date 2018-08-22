@@ -1,0 +1,342 @@
+<!--
+  Generated template for the VerPensumPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton color="lblue">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="eye"></ion-icon>
+      Visualizar el Pensum
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+   <!--PARTE DE LA SECCION DE LA CABECERA-->
+    <ion-segment [(ngModel)]="semes">
+        <ion-segment-button (click)="cargaElPensumSemstre(1)" value="1">
+            1
+        </ion-segment-button>
+        <ion-segment-button (click)="cargaElPensumSemstre(2)" value="2">
+            2
+        </ion-segment-button>
+        <ion-segment-button (click)="cargaElPensumSemstre(3)" value="3">
+            3
+        </ion-segment-button>
+        <ion-segment-button (click)="cargaElPensumSemstre(4)" value="4">
+            4
+        </ion-segment-button>
+        <ion-segment-button (click)="cargaElPensumSemstre(5)" value="5">
+            5
+        </ion-segment-button>
+        <ion-segment-button (click)="cargaElPensumSemstre(6)" value="6">
+            6
+        </ion-segment-button>
+        <ion-segment-button (click)="cargaElPensumSemstre(7)" value="7">
+            7
+        </ion-segment-button>
+        <ion-segment-button (click)="cargaElPensumSemstre(8)" value="8">
+            8
+        </ion-segment-button>
+        <ion-segment-button (click)="cargaElPensumSemstre(9)" value="9">
+            9
+        </ion-segment-button>
+        <ion-segment-button (click)="cargaElPensumSemstre(10)" value="10">
+            10
+        </ion-segment-button>
+    </ion-segment>
+
+    <!--SE VA A DESPLEGAR LA INFORMACION DE LOS SEMESTRES-->
+    <div [ngSwitch]="semes">
+      <!--SEMESTRE 1-->
+      <div *ngSwitchCase="'1'">
+          <ion-list>
+          <ion-list-header color="dark">
+            Primer Semestre
+          </ion-list-header>
+          <div *ngFor="let c of semestre">
+            <ion-card>
+              <ion-card-header>
+                <h1>{{c.Nombre}}</h1>
+              </ion-card-header>
+              <ion-card-content>
+                <p>Codigo: {{c.idCurso}}</p>
+                <br>
+                <p>Creditos: <ion-badge item-left color="secondary">{{c.creditos}}</ion-badge></p>
+                <br>
+                <p>Postrequisito: {{c.posrequisito}}</p>
+                <div *ngIf="c.asignado">
+                  <button  full ion-button color="secondary" (click)="desmarcar(c.idCurso, 1)">Quitar de Aprobados</button>
+                </div>
+                <div *ngIf="!c.asignado">
+                    <button  full ion-button color="danger" (click)="marcar(c.idCurso, 1)">Marcar Como Aprobado</button>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </div>
+          </ion-list>
+      </div>
+      <!--SEMESTRE 2-->
+      <div *ngSwitchCase="'2'">
+          <ion-list>
+            <ion-list-header color="dark">
+              Segundo Semestre
+            </ion-list-header>
+            <div *ngFor="let c of semestre">
+              <ion-card>
+                <ion-card-header>
+                  <h1>{{c.Nombre}}</h1>
+                </ion-card-header>
+                <ion-card-content>
+                  <p>Codigo: {{c.idCurso}}</p>
+                  <br>
+                  <p>Creditos: <ion-badge item-left color="secondary">{{c.creditos}}</ion-badge></p>
+                  <br>
+                  <p>Postrequisito: {{c.posrequisito}}</p>
+                  <div *ngIf="c.asignado">
+                    <button  full ion-button color="secondary" (click)="desmarcar(c.idCurso, 2)">Quitar de Aprobados</button>
+                  </div>
+                  <div *ngIf="!c.asignado">
+                      <button  full ion-button color="danger" (click)="marcar(c.idCurso, 2)">Marcar Como Aprobado</button>
+                  </div>
+                </ion-card-content>
+              </ion-card>
+            </div>
+          </ion-list>
+        </div>
+      <!--SEMESTRE 3-->
+      <div *ngSwitchCase="'3'">
+          <ion-list>
+              <ion-list-header color="dark">
+                Tercer Semestre
+              </ion-list-header>
+              <div *ngFor="let c of semestre">
+                <ion-card>
+                  <ion-card-header>
+                    <h1>{{c.Nombre}}</h1>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>Codigo: {{c.idCurso}}</p>
+                    <br>
+                    <p>Creditos: <ion-badge item-left color="secondary">{{c.creditos}}</ion-badge></p>
+                    <br>
+                    <p>Postrequisito: {{c.posrequisito}}</p>
+                    <div *ngIf="c.asignado">
+                      <button  full ion-button color="secondary" (click)="desmarcar(c.idCurso, 3)">Quitar de Aprobados</button>
+                    </div>
+                    <div *ngIf="!c.asignado">
+                        <button  full ion-button color="danger" (click)="marcar(c.idCurso, 3)">Marcar Como Aprobado</button>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </ion-list>
+      </div>
+      <!--SEMESTRE 4-->
+      <div *ngSwitchCase="'4'">
+          <ion-list>
+              <ion-list-header color="dark">
+                Cuarto Semestre
+              </ion-list-header>
+              <div *ngFor="let c of semestre">
+                <ion-card>
+                  <ion-card-header>
+                    <h1>{{c.Nombre}}</h1>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>Codigo: {{c.idCurso}}</p>
+                    <br>
+                    <p>Creditos: <ion-badge item-left color="secondary">{{c.creditos}}</ion-badge></p>
+                    <br>
+                    <p>Postrequisito: {{c.posrequisito}}</p>
+                    <div *ngIf="c.asignado">
+                      <button  full ion-button color="secondary" (click)="desmarcar(c.idCurso, 4)">Quitar de Aprobados</button>
+                    </div>
+                    <div *ngIf="!c.asignado">
+                        <button  full ion-button color="danger" (click)="marcar(c.idCurso, 4)">Marcar Como Aprobado</button>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </ion-list>
+      </div>
+      <!--SEMESTRE 5-->
+      <div *ngSwitchCase="'5'">
+          <ion-list>
+              <ion-list-header color="dark">
+                Quinto Semestre
+              </ion-list-header>
+              <div *ngFor="let c of semestre">
+                <ion-card>
+                  <ion-card-header>
+                    <h1>{{c.Nombre}}</h1>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>Codigo: {{c.idCurso}}</p>
+                    <br>
+                    <p>Creditos: <ion-badge item-left color="secondary">{{c.creditos}}</ion-badge></p>
+                    <br>
+                    <p>Postrequisito: {{c.posrequisito}}</p>
+                    <div *ngIf="c.asignado">
+                      <button  full ion-button color="secondary" (click)="desmarcar(c.idCurso, 5)">Quitar de Aprobados</button>
+                    </div>
+                    <div *ngIf="!c.asignado">
+                        <button  full ion-button color="danger" (click)="marcar(c.idCurso, 5)">Marcar Como Aprobado</button>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </ion-list>
+      </div>
+      <!--SEMESTRE 6-->
+      <div *ngSwitchCase="'6'">
+          <ion-list>
+              <ion-list-header color="dark">
+                Sexto Semestre
+              </ion-list-header>
+              <div *ngFor="let c of semestre">
+                <ion-card>
+                  <ion-card-header>
+                    <h1>{{c.Nombre}}</h1>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>Codigo: {{c.idCurso}}</p>
+                    <br>
+                    <p>Creditos: <ion-badge item-left color="secondary">{{c.creditos}}</ion-badge></p>
+                    <br>
+                    <p>Postrequisito: {{c.posrequisito}}</p>
+                    <div *ngIf="c.asignado">
+                      <button  full ion-button color="secondary" (click)="desmarcar(c.idCurso, 6)">Quitar de Aprobados</button>
+                    </div>
+                    <div *ngIf="!c.asignado">
+                        <button  full ion-button color="danger" (click)="marcar(c.idCurso, 6)">Marcar Como Aprobado</button>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </ion-list>
+      </div>
+      <!--SEMESTRE 7-->
+      <div *ngSwitchCase="'7'">
+          <ion-list>
+              <ion-list-header color="dark">
+                Septimo Semestre
+              </ion-list-header>
+              <div *ngFor="let c of semestre">
+                <ion-card>
+                  <ion-card-header>
+                    <h1>{{c.Nombre}}</h1>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>Codigo: {{c.idCurso}}</p>
+                    <br>
+                    <p>Creditos: <ion-badge item-left color="secondary">{{c.creditos}}</ion-badge></p>
+                    <br>
+                    <p>Postrequisito: {{c.posrequisito}}</p>
+                    <div *ngIf="c.asignado">
+                      <button  full ion-button color="secondary" (click)="desmarcar(c.idCurso, 7)">Quitar de Aprobados</button>
+                    </div>
+                    <div *ngIf="!c.asignado">
+                        <button  full ion-button color="danger" (click)="marcar(c.idCurso, 7)">Marcar Como Aprobado</button>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </ion-list>
+      </div>
+      <!--SEMESTRE 8-->
+      <div *ngSwitchCase="'8'">
+          <ion-list>
+              <ion-list-header color="dark">
+                Octavo Semestre
+              </ion-list-header>
+              <div *ngFor="let c of semestre">
+                <ion-card>
+                  <ion-card-header>
+                    <h1>{{c.Nombre}}</h1>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>Codigo: {{c.idCurso}}</p>
+                    <br>
+                    <p>Creditos: <ion-badge item-left color="secondary">{{c.creditos}}</ion-badge></p>
+                    <br>
+                    <p>Postrequisito: {{c.posrequisito}}</p>
+                    <div *ngIf="c.asignado">
+                      <button  full ion-button color="secondary" (click)="desmarcar(c.idCurso, 8)">Quitar de Aprobados</button>
+                    </div>
+                    <div *ngIf="!c.asignado">
+                        <button  full ion-button color="danger" (click)="marcar(c.idCurso, 8)">Marcar Como Aprobado</button>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </ion-list>
+      </div>
+      <!--SEMESTRE 9-->
+      <div *ngSwitchCase="'9'">
+          <ion-list>
+              <ion-list-header color="dark">
+                Noveno Semestre
+              </ion-list-header>
+              <div *ngFor="let c of semestre">
+                <ion-card>
+                  <ion-card-header>
+                    <h1>{{c.Nombre}}</h1>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>Codigo: {{c.idCurso}}</p>
+                    <br>
+                    <p>Creditos: <ion-badge item-left color="secondary">{{c.creditos}}</ion-badge></p>
+                    <br>
+                    <p>Postrequisito: {{c.posrequisito}}</p>
+                    <div *ngIf="c.asignado">
+                      <button  full ion-button color="secondary" (click)="desmarcar(c.idCurso, 9)">Quitar de Aprobados</button>
+                    </div>
+                    <div *ngIf="!c.asignado">
+                        <button  full ion-button color="danger" (click)="marcar(c.idCurso, 9)">Marcar Como Aprobado</button>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </ion-list>
+      </div>
+      <!--SEMESTRE 10-->
+      <div *ngSwitchCase="'10'">
+          <ion-list>
+              <ion-list-header color="dark">
+                Decimo Semestre
+              </ion-list-header>
+              <div *ngFor="let c of semestre">
+                <ion-card>
+                  <ion-card-header>
+                    <h1>{{c.Nombre}}</h1>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <p>Codigo: {{c.idCurso}}</p>
+                    <br>
+                    <p>Creditos: <ion-badge item-left color="secondary">{{c.creditos}}</ion-badge></p>
+                    <br>
+                    <p>Postrequisito: {{c.posrequisito}}</p>
+                    <div *ngIf="c.asignado">
+                      <button  full ion-button color="secondary" (click)="desmarcar(c.idCurso, 10)">Quitar de Aprobados</button>
+                    </div>
+                    <div *ngIf="!c.asignado">
+                        <button  full ion-button color="danger" (click)="marcar(c.idCurso, 10)">Marcar Como Aprobado</button>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </ion-list>
+      </div>
+    </div>
+
+</ion-content>

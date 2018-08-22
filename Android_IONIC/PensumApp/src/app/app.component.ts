@@ -7,7 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LogInPage } from '../pages/log-in/log-in';
 import { ProgresoPage } from "../pages/progreso/progreso";
-
+import { VerPensumPage } from "../pages/ver-pensum/ver-pensum";
+ 
 @Component({
   templateUrl: 'app.html'
 })
@@ -27,7 +28,8 @@ export class MyApp {
       { title: 'Ver Mi Horario', component: HomePage },
       //{ title: 'List', component: ListPage }
       { title: 'Ver Mi Progreso', component: ProgresoPage },
-      { title: 'Log Out', component: LogInPage }
+      { title: 'Log Out', component: LogInPage },
+      { title: 'Ver Pensum', component: VerPensumPage }
     ];
 
   }
