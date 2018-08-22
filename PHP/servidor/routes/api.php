@@ -19,6 +19,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get ('obtenerCursosQuePuedeLlevar'       ,'cursos_controller@getCursosQuePuedeLlevar');
 Route::post ('post_obtenerCursosQuePuedeLlevar' ,'cursos_controller@getCursosQuePuedeLlevarPost');
-/* Route::middleware('users','UserController',['only'=> ['index']]);
-});
- */
+
+
+//Pensum
+Route::post('get_obtenerCursosPensum','pensum_controller@obtenerCursosPensum2');
+Route::post('get_obtenerCursosPensum2','pensum_controller@obtenerCursosPensum');
+
+Route::post('pensum_asignarCursosAprobadosPensum','pensum_controller@asignarCursosAprobadosPensum');
+Route::post('pensum_desasignarCursosAprobadosPensum','pensum_controller@desasignarCursosAprobadosPensum');
+
+Route::post('obtenerProgresoDeLaCarrera','pensum_controller@progresoCarrera');
+
