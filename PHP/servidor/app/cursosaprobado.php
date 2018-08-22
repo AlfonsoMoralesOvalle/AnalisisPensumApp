@@ -4,14 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class asignacioncurso extends Model
+class cursosaprobado extends Model
 {
+   
     protected $fillable = 
     [
         'carnet', 
         'idCurso', 
-        'idSemestre', 
-        'nombreSeccion', 
-        'aprobado'
+        'idCarrera', 
+        'idSemestre'
     ]; 
 }
+

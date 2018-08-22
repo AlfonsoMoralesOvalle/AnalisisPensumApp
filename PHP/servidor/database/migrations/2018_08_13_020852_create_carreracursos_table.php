@@ -14,17 +14,21 @@ class CreateCarreracursosTable extends Migration
     public function up()
     {
         Schema::create('carreracursos', function (Blueprint $table) {
+            
             $table->string('idCarrera');
             $table->string('idCurso');
+            $table->foreign('idCarrera')->references('idCarrera')->on('carreras'); 
+            $table->foreign('idCurso')->references('idCurso')->on('cursos');
             $table->primary(['idCarrera','idCurso']);
+
             $table->boolean('obligatoria')->default(false);
             $table->integer('semestre')->unsigned();
             $table->integer('creditos')->unsigned();;
             
+ 
+
             $table->boolean('estado')->default(true);
 
-            $table->foreign('idCarrera')->references('idCarrera')->on('carreras'); 
-            $table->foreign('idCurso')->references('idCurso')->on('cursos'); 
            
             $table->timestamps();
 

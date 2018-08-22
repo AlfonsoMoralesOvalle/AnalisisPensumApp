@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCursosadesbloquearsTable extends Migration
+class CreateCursospostrsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateCursosadesbloquearsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cursosadesbloquears', function (Blueprint $table) {
+        Schema::create('cursospostrs', function (Blueprint $table) {
             $table->string('idCarrera');
             $table->string('idCurso');
-            $table->string('cursoadesbloquear');
-            $table->primary(['idCarrera','idCurso','cursoadesbloquear']);
+            $table->string('idCursoPost');
+            $table->primary(['idCarrera','idCurso','idCursoPost']);
 
 
             $table->boolean('estado')->default(true);
 
             $table->foreign('idCarrera')->references('idCarrera')->on('carreracursos');
             $table->foreign('idCurso')->references('idCurso')->on('carreracursos'); 
-            $table->foreign('cursoadesbloquear')->references('idCurso')->on('cursos'); 
+            $table->foreign('idCursoPost')->references('idCurso')->on('cursos'); 
             
             $table->timestamps();
         });
@@ -37,6 +37,6 @@ class CreateCursosadesbloquearsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cursosadesbloquears');
+        Schema::dropIfExists('cursospostrs');
     }
 }

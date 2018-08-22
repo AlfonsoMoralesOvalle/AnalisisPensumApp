@@ -1,0 +1,24 @@
+
+
+https://596378e7.ngrok.io/api/get_obtenerCursosPensum
+
+Parametros=[{
+    "idSemestre":2,
+    "carnet":"3234234",
+    "idCarrera":43
+}]
+
+Retorno=[{
+    "idCurso": "170",
+    "Nombre": "MATEMATICA BASICA 2",
+    "creditos": 5,
+    "asignado": false,
+    "posrequisito": 663
+}, {
+    "idCurso": "29",
+    "Nombre": "SOCIAL HUMANISTICA 2",
+    "creditos": 5,
+    "asignado": false,
+    "posrequisito": 476
+}]
+
