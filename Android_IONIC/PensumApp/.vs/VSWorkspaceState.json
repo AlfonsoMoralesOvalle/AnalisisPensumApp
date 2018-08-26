@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\resources"
+    "\\src",
+    "\\src\\providers",
+    "\\src\\providers\\user-service"
   ],
-  "SelectedNode": "\\package.json",
+  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
