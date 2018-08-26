@@ -15,7 +15,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServiciosProvider } from '../providers/servicios/servicios';
 import { UserServiceProvider } from '../providers/user-service/user-service';
-import { HttpClientModule } from '@angular/common/http';
 import { EjemploProvider } from '../providers/ejemplo/ejemplo';
 import { HttpModule } from '@angular/http';
 
