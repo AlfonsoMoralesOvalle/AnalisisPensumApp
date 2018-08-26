@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 103:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51,7 +51,7 @@ var LogInPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 104:
+/***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -89,6 +89,7 @@ var ProgresoPage = /** @class */ (function () {
         this.loadingCtrl = loadingCtrl;
         this.toastCtrl = toastCtrl;
         this.servicio = servicio;
+        this.semestre = [];
         this.data = [];
     }
     ProgresoPage.prototype.ionViewDidLoad = function () {
@@ -101,6 +102,7 @@ var ProgresoPage = /** @class */ (function () {
         setTimeout(function () {
             loader.dismiss();
             _this.actualizaProgreso();
+            _this.cargaElPensumSemstre();
         }, 3000);
         //this.cargarCursos();
     };
@@ -137,9 +139,18 @@ var ProgresoPage = /** @class */ (function () {
         });
         toast.present();
     };
+    ProgresoPage.prototype.cargaElPensumSemstre = function () {
+        var _this = this;
+        for (var i = 1; i < 11; i++) {
+            this.servicio.getPensum(i).subscribe(function (data) { _this.semestre.push(data); });
+        }
+        console.log("hola");
+        console.log(this.semestre);
+        console.log("hola2");
+    };
     ProgresoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-progreso',template:/*ion-inline-start:"C:\Users\Milton Navarro\Documents\proyecto pensum\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\progreso\progreso.html"*/'<!--\n\n  Generated template for the ProgresoPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    <ion-navbar hideBackButton color="lblue">\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <ion-title>\n\n        <ion-icon name="bicycle"></ion-icon>\n\n        Progreso de Pensum\n\n      </ion-title>\n\n    </ion-navbar>\n\n  </ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-refresher (ionRefresh)="refrescar($event)">\n\n      <ion-refresher-content></ion-refresher-content>\n\n  </ion-refresher>\n\n  <ion-list no-border >\n\n\n\n    <ion-list-header>\n\n        Mi Progreso\n\n    </ion-list-header>\n\n    \n\n    <ion-item>\n\n      <div text-center>\n\n        <!-- progress-circle porcentaje donde porcentaje debe ser un numero entero -->\n\n        <div class="progress-circle p{{data.porcentaje}}">\n\n          <span>{{data.porcentaje}}%</span>\n\n          <div class="left-half-clipper">\n\n            <div class="first50-bar"></div>\n\n            <div class="value-bar"></div>\n\n          </div>\n\n        </div>\n\n       </div>\n\n        <h2>Sigue asi llevas el {{data.porcentaje}} % de</h2>\n\n        <h2> Ingenieria en ciencias y sistemas</h2>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      Creditos\n\n      <ion-icon name=\'md-card\' item-left></ion-icon>\n\n      <ion-badge item-right>{{data.numCreditos}}</ion-badge>\n\n    </ion-item>\n\n    \n\n    <ion-item>\n\n        Cursos Aprobados\n\n        <ion-icon name=\'ios-bookmark\' item-left></ion-icon>\n\n        <ion-badge  color="secondary" item-right>{{data.numAprobados}}</ion-badge>\n\n    </ion-item>\n\n    \n\n</ion-list>\n\n\n\n<ion-list-header color="dark">\n\n  Mi Pensum\n\n</ion-list-header>  \n\n\n\n<ion-slides >\n\n<ion-slide>\n\n  <ion-list>\n\n      <ion-scroll style="width:100%; height:100vh" scrollY="true">\n\n          <ion-item></ion-item>\n\n          <ion-list-header color="primary">\n\n              1 Semestre\n\n          </ion-list-header>\n\n          <ion-item >\n\n            <ion-thumbnail item-start >\n\n                <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>\n\n                <ion-badge class = "detcurso">Creditos: 4</ion-badge>\n\n            </ion-thumbnail>\n\n            <ion-thumbnail item-left >\n\n            <div > \n\n                <h2>Sistemas Operativos 2</h2>\n\n                <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>\n\n            </div>\n\n            </ion-thumbnail>\n\n            <ion-thumbnail item-right>\n\n                <h2>Requisitos:</h2>\n\n                <ion-badge class = "req" >282</ion-badge>\n\n                <ion-badge class = "req" >283</ion-badge>\n\n                <ion-badge class = "req" >284</ion-badge>\n\n                <ion-badge class = "req" >285</ion-badge>\n\n                <ion-badge class = "req" >286</ion-badge>\n\n            </ion-thumbnail>\n\n          </ion-item>\n\n          <ion-item >\n\n              <ion-thumbnail item-start >\n\n                  <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>\n\n                  <ion-badge class = "detcurso">Creditos: 4</ion-badge>\n\n              </ion-thumbnail>\n\n              <ion-thumbnail item-left >\n\n              <div > \n\n                  <h2>Sistemas Operativos 2</h2>\n\n                  <ion-badge  color="primary" >Estado: En Curso</ion-badge>\n\n              </div>\n\n              </ion-thumbnail>\n\n              <ion-thumbnail item-right>\n\n                  <h2>Requisitos:</h2>\n\n                  <ion-badge class = "req" >282</ion-badge>\n\n                  <ion-badge class = "req" >283</ion-badge>\n\n                  <ion-badge class = "req" >284</ion-badge>\n\n                  <ion-badge class = "req" >285</ion-badge>\n\n                  <ion-badge class = "req" >286</ion-badge>\n\n              </ion-thumbnail>\n\n          </ion-item>\n\n          <ion-item >\n\n              <ion-thumbnail item-start >\n\n                  <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>\n\n                  <ion-badge class = "detcurso">Creditos: 4</ion-badge>\n\n              </ion-thumbnail>\n\n              <ion-thumbnail item-left >\n\n              <div > \n\n                  <h2>Sistemas Operativos 4</h2>\n\n                  <ion-badge  color="light" >Estado: Inactivo</ion-badge>\n\n              </div>\n\n              </ion-thumbnail>\n\n              <ion-thumbnail item-right>\n\n                  <h2>Requisitos:</h2>\n\n                  <ion-badge class = "req" >282</ion-badge>\n\n                  <ion-badge class = "req" >283</ion-badge>\n\n                  <ion-badge class = "req" >284</ion-badge>\n\n                  <ion-badge class = "req" >285</ion-badge>\n\n                  <ion-badge class = "req" >286</ion-badge>\n\n              </ion-thumbnail>\n\n          </ion-item>\n\n          <ion-item >\n\n                  <ion-thumbnail item-start >\n\n                      <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>\n\n                      <ion-badge class = "detcurso">Creditos: 4</ion-badge>\n\n                  </ion-thumbnail>\n\n                  <ion-thumbnail item-left >\n\n                  <div > \n\n                      <h2>Sistemas Operativos 3</h2>\n\n                      <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>\n\n                  </div>\n\n                  </ion-thumbnail>\n\n                  <ion-thumbnail item-right>\n\n                      <h2>Requisitos:</h2>\n\n                      <ion-badge class = "req" >282</ion-badge>\n\n                      <ion-badge class = "req" >283</ion-badge>\n\n                      <ion-badge class = "req" >284</ion-badge>\n\n                      <ion-badge class = "req" >285</ion-badge>\n\n                      <ion-badge class = "req" >286</ion-badge>\n\n                  </ion-thumbnail>\n\n          </ion-item>\n\n      </ion-scroll>\n\n  </ion-list>\n\n</ion-slide>\n\n    \n\n<ion-slide>\n\n      <ion-list>\n\n              <ion-scroll style="width:100%; height:100vh" scrollY="true">\n\n                  <ion-item></ion-item>\n\n                  <ion-list-header color="primary">\n\n                      2 Semestre\n\n                  </ion-list-header>\n\n                  <ion-item >\n\n                    <ion-thumbnail item-start >\n\n                        <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>\n\n                        <ion-badge class = "detcurso">Creditos: 4</ion-badge>\n\n                    </ion-thumbnail>\n\n                    <ion-thumbnail item-left >\n\n                    <div > \n\n                        <h2>Sistemas Operativos 2</h2>\n\n                        <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>\n\n                    </div>\n\n                    </ion-thumbnail>\n\n                    <ion-thumbnail item-right>\n\n                        <h2>Requisitos:</h2>\n\n                        <ion-badge class = "req" >282</ion-badge>\n\n                        <ion-badge class = "req" >283</ion-badge>\n\n                        <ion-badge class = "req" >284</ion-badge>\n\n                        <ion-badge class = "req" >285</ion-badge>\n\n                        <ion-badge class = "req" >286</ion-badge>\n\n                    </ion-thumbnail>\n\n                  </ion-item>\n\n                  <ion-item >\n\n                      <ion-thumbnail item-start >\n\n                          <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>\n\n                          <ion-badge class = "detcurso">Creditos: 4</ion-badge>\n\n                      </ion-thumbnail>\n\n                      <ion-thumbnail item-left >\n\n                      <div > \n\n                          <h2>Sistemas Operativos 2</h2>\n\n                          <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>\n\n                      </div>\n\n                      </ion-thumbnail>\n\n                      <ion-thumbnail item-right>\n\n                          <h2>Requisitos:</h2>\n\n                          <ion-badge class = "req" >282</ion-badge>\n\n                          <ion-badge class = "req" >283</ion-badge>\n\n                          <ion-badge class = "req" >284</ion-badge>\n\n                          <ion-badge class = "req" >285</ion-badge>\n\n                          <ion-badge class = "req" >286</ion-badge>\n\n                      </ion-thumbnail>\n\n                  </ion-item>\n\n                  <ion-item >\n\n                      <ion-thumbnail item-start >\n\n                          <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>\n\n                          <ion-badge class = "detcurso">Creditos: 4</ion-badge>\n\n                      </ion-thumbnail>\n\n                      <ion-thumbnail item-left >\n\n                      <div > \n\n                          <h2>Sistemas Operativos 4</h2>\n\n                          <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>\n\n                      </div>\n\n                      </ion-thumbnail>\n\n                      <ion-thumbnail item-right>\n\n                          <h2>Requisitos:</h2>\n\n                          <ion-badge class = "req" >282</ion-badge>\n\n                          <ion-badge class = "req" >283</ion-badge>\n\n                          <ion-badge class = "req" >284</ion-badge>\n\n                          <ion-badge class = "req" >285</ion-badge>\n\n                          <ion-badge class = "req" >286</ion-badge>\n\n                      </ion-thumbnail>\n\n                  </ion-item>\n\n                  <ion-item >\n\n                          <ion-thumbnail item-start >\n\n                              <ion-badge class = "detcurso2" >Codigo: 285</ion-badge><br/><br/>\n\n                              <ion-badge class = "detcurso">Creditos: 4</ion-badge>\n\n                          </ion-thumbnail>\n\n                          <ion-thumbnail item-left >\n\n                          <div > \n\n                              <h2>Sistemas Operativos 3</h2>\n\n                              <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>\n\n                          </div>\n\n                          </ion-thumbnail>\n\n                          <ion-thumbnail item-right>\n\n                              <h2>Requisitos:</h2>\n\n                              <ion-badge class = "req" >282</ion-badge>\n\n                              <ion-badge class = "req" >283</ion-badge>\n\n                              <ion-badge class = "req" >284</ion-badge>\n\n                              <ion-badge class = "req" >285</ion-badge>\n\n                              <ion-badge class = "req" >286</ion-badge>\n\n                          </ion-thumbnail>\n\n                  </ion-item>\n\n              </ion-scroll>\n\n          </ion-list>\n\n</ion-slide>\n\n    \n\n<ion-slide >\n\n   <h2>Slide 3</h2>\n\n</ion-slide>\n\n    \n\n</ion-slides>\n\n\n\n\n\n\n\n<ion-list>\n\n    <ion-item></ion-item>\n\n    <ion-list-header color="dark">\n\n        !Cursos que puedo seguir!\n\n    </ion-list-header>\n\n    <!--\n\n    <div *ngFor="let c of cursos">\n\n      <ion-item>\n\n        <ion-thumbnail item-start>\n\n          <img src="assets/imgs/cursos.png">\n\n        </ion-thumbnail>\n\n        <h2>{{c.Nombre}}</h2>\n\n        <p>Codigo: {{c.idCurso}}</p>\n\n        <div *ngIf="existe(c.idCurso)">\n\n          <button ion-button clear item-end color="danger" (click)="quitarInteresado(c.idCurso)">Quitar de Interesados</button>\n\n        </div>\n\n        <div *ngIf="!existe(c.idCurso)">\n\n          <button ion-button clear item-end (click)="agregarInteresado(c.idCurso)">Me Interesa Seguir</button>\n\n        </div>\n\n      </ion-item>\n\n    </div>\n\n\n\n  -->\n\n\n\n  </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Milton Navarro\Documents\proyecto pensum\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\progreso\progreso.html"*/,
+            selector: 'page-progreso',template:/*ion-inline-start:"C:\Users\Milton Navarro\Documents\proyecto pensum\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\progreso\progreso.html"*/'<!--\n\n  Generated template for the ProgresoPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    <ion-navbar hideBackButton color="lblue">\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <ion-title>\n\n        <ion-icon name="bicycle"></ion-icon>\n\n        Progreso de Pensum\n\n      </ion-title>\n\n    </ion-navbar>\n\n  </ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-refresher (ionRefresh)="refrescar($event)">\n\n      <ion-refresher-content></ion-refresher-content>\n\n  </ion-refresher>\n\n  <ion-list no-border >\n\n\n\n    <ion-list-header>\n\n        Mi Progreso\n\n    </ion-list-header>\n\n    \n\n    <ion-item>\n\n      <div text-center>\n\n        <!-- progress-circle porcentaje donde porcentaje debe ser un numero entero -->\n\n        <div class="progress-circle p{{data.porcentaje}}">\n\n          <span>{{data.porcentaje}}%</span>\n\n          <div class="left-half-clipper">\n\n            <div class="first50-bar"></div>\n\n            <div class="value-bar"></div>\n\n          </div>\n\n        </div>\n\n       </div>\n\n        <h2>Sigue asi llevas el {{data.porcentaje}} % de</h2>\n\n        <h2> Ingenieria en ciencias y sistemas</h2>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      Creditos\n\n      <ion-icon name=\'md-card\' item-left></ion-icon>\n\n      <ion-badge item-right>{{data.numCreditos}}</ion-badge>\n\n    </ion-item>\n\n    \n\n    <ion-item>\n\n        Cursos Aprobados\n\n        <ion-icon name=\'ios-bookmark\' item-left></ion-icon>\n\n        <ion-badge  color="secondary" item-right>{{data.numAprobados}}</ion-badge>\n\n    </ion-item>\n\n    \n\n</ion-list>\n\n\n\n<ion-list-header color="dark">\n\n  Mi Pensum\n\n</ion-list-header>  \n\n\n\n<ion-slides style="width:100%; height:50vh">\n\n<div *ngFor="let sem of semestre; let i = index">\n\n<ion-slide>\n\n  <ion-list>\n\n      <ion-scroll style="width:100%; height:60vh" scrollY="true">\n\n          <ion-item></ion-item>\n\n          <ion-list-header color="primary">\n\n                {{i+1}} Semestre\n\n          </ion-list-header>\n\n          <div *ngFor="let curso of sem">\n\n          <ion-item >\n\n            <ion-thumbnail item-start >\n\n                <ion-badge class = "detcurso2" >Codigo: {{curso.idCurso}}</ion-badge><br/><br/>\n\n                <ion-badge class = "detcurso">Creditos: {{curso.creditos}}</ion-badge>\n\n            </ion-thumbnail>\n\n            <ion-thumbnail item-left >\n\n            <div *ngIf="curso.asignado"> \n\n                <h2>{{curso.Nombre}}</h2>\n\n                <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>\n\n            </div>\n\n            <div div *ngIf="!curso.asignado"> \n\n                <h2>{{curso.Nombre}}</h2>\n\n                <ion-badge  color="primary" >Estado: inactivo</ion-badge>\n\n            </div>\n\n            </ion-thumbnail>\n\n            <ion-thumbnail item-right>\n\n                <h2>PostRequisito:</h2>\n\n                <ion-badge class = "req" >{{curso.posrequisito}}</ion-badge>\n\n            </ion-thumbnail>\n\n          </ion-item>\n\n          </div>\n\n      </ion-scroll>\n\n  </ion-list>\n\n</ion-slide>\n\n</div>  \n\n    \n\n</ion-slides>\n\n\n\n\n\n\n\n<ion-list>\n\n    <ion-item></ion-item>\n\n    <ion-list-header color="dark">\n\n        !Cursos que puedo seguir!\n\n    </ion-list-header>\n\n    <!--\n\n    <div *ngFor="let c of cursos">\n\n      <ion-item>\n\n        <ion-thumbnail item-start>\n\n          <img src="assets/imgs/cursos.png">\n\n        </ion-thumbnail>\n\n        <h2>{{c.Nombre}}</h2>\n\n        <p>Codigo: {{c.idCurso}}</p>\n\n        <div *ngIf="existe(c.idCurso)">\n\n          <button ion-button clear item-end color="danger" (click)="quitarInteresado(c.idCurso)">Quitar de Interesados</button>\n\n        </div>\n\n        <div *ngIf="!existe(c.idCurso)">\n\n          <button ion-button clear item-end (click)="agregarInteresado(c.idCurso)">Me Interesa Seguir</button>\n\n        </div>\n\n      </ion-item>\n\n    </div>\n\n\n\n  -->\n\n\n\n</ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Milton Navarro\Documents\proyecto pensum\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\progreso\progreso.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_ejemplo_ejemplo__["a" /* EjemploProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__providers_servicios_servicios__["a" /* ServiciosProvider */]])
     ], ProgresoPage);
@@ -150,7 +161,7 @@ var ProgresoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 105:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -247,7 +258,7 @@ var VerPensumPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 117:
+/***/ 118:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -260,32 +271,32 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 117;
+webpackEmptyAsyncContext.id = 118;
 
 /***/ }),
 
-/***/ 158:
+/***/ 159:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/agregar-curso/agregar-curso.module": [
-		282,
+		283,
 		1
 	],
 	"../pages/log-in/log-in.module": [
-		283,
+		284,
 		4
 	],
 	"../pages/pensum/pensum.module": [
-		284,
+		285,
 		0
 	],
 	"../pages/progreso/progreso.module": [
-		285,
+		286,
 		3
 	],
 	"../pages/ver-pensum/ver-pensum.module": [
-		286,
+		287,
 		2
 	]
 };
@@ -300,7 +311,7 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 158;
+webpackAsyncContext.id = 159;
 module.exports = webpackAsyncContext;
 
 /***/ }),
@@ -327,24 +338,26 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_log_in_log_in__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_progreso_progreso__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_ver_pensum_ver_pensum__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_servicios_servicios__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_common_http__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_ejemplo_ejemplo__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_http__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_list_list__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_log_in_log_in__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_progreso_progreso__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_ver_pensum_ver_pensum__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_servicios_servicios__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_user_service_user_service__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_ejemplo_ejemplo__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_http__ = __webpack_require__(160);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -367,17 +380,18 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_5__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_log_in_log_in__["a" /* LogInPage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_progreso_progreso__["a" /* ProgresoPage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_ver_pensum_ver_pensum__["a" /* VerPensumPage */]
+                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_log_in_log_in__["a" /* LogInPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_progreso_progreso__["a" /* ProgresoPage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_ver_pensum_ver_pensum__["a" /* VerPensumPage */]
                 //AgregarCursoPage
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/agregar-curso/agregar-curso.module#AgregarCursoPageModule', name: 'AgregarCursoPage', segment: 'agregar-curso', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/log-in/log-in.module#LogInPageModule', name: 'LogInPage', segment: 'log-in', priority: 'low', defaultHistory: [] },
@@ -386,25 +400,26 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/ver-pensum/ver-pensum.module#VerPensumPageModule', name: 'VerPensumPage', segment: 'ver-pensum', priority: 'low', defaultHistory: [] }
                     ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_12__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_14__angular_http__["b" /* HttpModule */]
+                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_15__angular_http__["b" /* HttpModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_5__pages_list_list__["a" /* ListPage */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_log_in_log_in__["a" /* LogInPage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_progreso_progreso__["a" /* ProgresoPage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_ver_pensum_ver_pensum__["a" /* VerPensumPage */]
+                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_list_list__["a" /* ListPage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_log_in_log_in__["a" /* LogInPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_progreso_progreso__["a" /* ProgresoPage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_ver_pensum_ver_pensum__["a" /* VerPensumPage */]
                 //AgregarCursoPage
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_11__providers_servicios_servicios__["a" /* ServiciosProvider */],
-                __WEBPACK_IMPORTED_MODULE_13__providers_ejemplo_ejemplo__["a" /* EjemploProvider */]
+                __WEBPACK_IMPORTED_MODULE_12__providers_servicios_servicios__["a" /* ServiciosProvider */],
+                __WEBPACK_IMPORTED_MODULE_13__providers_user_service_user_service__["a" /* UserServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_14__providers_ejemplo_ejemplo__["a" /* EjemploProvider */]
             ]
         })
     ], AppModule);
@@ -425,9 +440,9 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_log_in_log_in__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_progreso_progreso__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ver_pensum_ver_pensum__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_log_in_log_in__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_progreso_progreso__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ver_pensum_ver_pensum__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -554,13 +569,56 @@ var ListPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 282:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/*
+  Generated class for the UserServiceProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var UserServiceProvider = /** @class */ (function () {
+    function UserServiceProvider(http) {
+        this.http = http;
+        console.log('Hello UserServiceProvider Provider');
+    }
+    UserServiceProvider.prototype.getRandomUser = function () {
+        return this.http.get('https://randomuser.me/api/?results=25');
+    };
+    UserServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], UserServiceProvider);
+    return UserServiceProvider;
+}());
+
+//# sourceMappingURL=user-service.js.map
+
+/***/ }),
+
 /***/ 46:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServiciosProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -694,7 +752,7 @@ var HomePage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EjemploProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

@@ -20,7 +20,7 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
 export class ProgresoPage {
 
   cursos: any
-
+  semestre =[]
   data =[]
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public ej:EjemploProvider, public loadingCtrl: LoadingController, public toastCtrl: ToastController, public servicio:ServiciosProvider) {
@@ -37,6 +37,7 @@ export class ProgresoPage {
     setTimeout(() => {
       loader.dismiss();
       this.actualizaProgreso();
+      this.cargaElPensumSemstre();
     }, 3000);
 
     //this.cargarCursos();
@@ -85,5 +86,17 @@ export class ProgresoPage {
       duration: 2000
     });
     toast.present();
+  }
+
+
+  cargaElPensumSemstre()
+  {
+
+    for(let i=1;i<11;i++){
+      this.servicio.getPensum(i).subscribe(data => {this.semestre.push(data)});
+    }
+    console.log("hola");
+    console.log(this.semestre);
+    console.log("hola2");
   }
 }
