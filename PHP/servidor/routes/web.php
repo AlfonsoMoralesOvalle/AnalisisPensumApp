@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get  ('get_Cursos/'                ,'cursos_controller@getCursos');
+/* Route::get ('obtenerCursosQuePuedeLlevar' ,'cursos_controller@getCursosQuePuedeLlevar'); */

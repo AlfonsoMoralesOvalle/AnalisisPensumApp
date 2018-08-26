@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 279:
+/***/ 286:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogInPageModule", function() { return LogInPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VerPensumPageModule", function() { return VerPensumPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__log_in__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ver_pensum__ = __webpack_require__(105);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LogInPageModule = /** @class */ (function () {
-    function LogInPageModule() {
+var VerPensumPageModule = /** @class */ (function () {
+    function VerPensumPageModule() {
     }
-    LogInPageModule = __decorate([
+    VerPensumPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__log_in__["a" /* LogInPage */],
+                __WEBPACK_IMPORTED_MODULE_2__ver_pensum__["a" /* VerPensumPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__log_in__["a" /* LogInPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__ver_pensum__["a" /* VerPensumPage */]),
             ],
         })
-    ], LogInPageModule);
-    return LogInPageModule;
+    ], VerPensumPageModule);
+    return VerPensumPageModule;
 }());
 
-//# sourceMappingURL=log-in.module.js.map
+//# sourceMappingURL=ver-pensum.module.js.map
 
 /***/ })
 

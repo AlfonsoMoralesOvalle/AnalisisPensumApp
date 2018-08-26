@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar hideBackButton>
+  <ion-navbar hideBackButton color="lblue">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -16,36 +16,42 @@
             <ion-icon name="add-circle"></ion-icon>
         </button>
     </ion-fab>
-    <ion-grid>
-        <ion-row>
-            <ion-col col-sm-1><ion-label text-center><b>Nombre</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>Salón</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>Hora Inicio</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>Hora Final</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>L</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>Ma</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>Mi</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>J</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>V</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>S</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>D</b></ion-label></ion-col>
-            <ion-col col-sm-1><ion-label text-center><b>Catedratico</b></ion-label></ion-col>
-        </ion-row>
-        <div *ngFor="let curso of horario">
-            <ion-row>
-                <ion-col col-sm-1><ion-label text-center>{{ curso.curso }}</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center>{{ curso.salon }}</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center>{{ curso.hora_inicio }}</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center>{{ curso.hora_fin }}</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center *ngIf="(curso.dias.lunes == true)">X</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center *ngIf="(curso.dias.martes == true)">X</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center *ngIf="(curso.dias.miercoles == true)">X</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center *ngIf="(curso.dias.jueves == true)">X</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center *ngIf="(curso.dias.viernes == true)">X</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center *ngIf="(curso.dias.sabado == true)">X</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center *ngIf="(curso.dias.domingo == true)">X</ion-label></ion-col>
-                <ion-col col-sm-1><ion-label text-center>{{ curso.catedratico }}</ion-label></ion-col>
-            </ion-row>
+
+    <!--
+        AQUI EMPIEZA LA NUEVA INTERFAZ
+    -->
+    <ion-segment [(ngModel)]="days">
+        <ion-segment-button value="lun">
+            Lun
+        </ion-segment-button>
+        <ion-segment-button value="mar">
+            Mar
+        </ion-segment-button>
+        <ion-segment-button value="mie">
+            Mierc
+        </ion-segment-button>
+        <ion-segment-button value="juv">
+            Jue
+        </ion-segment-button>
+        <ion-segment-button value="vie">
+            Vier
+        </ion-segment-button>
+        <ion-segment-button value="sab">
+            Sab
+        </ion-segment-button>
+    </ion-segment>
+
+    <div [ngSwitch]="days">
+        <!--MARTES-->
+        <div *ngSwitchCase="'lun'">
+            
         </div>
-    </ion-grid>
+        <!--VIERNES-->
+        <div *ngSwitchCase="'vie'">
+           
+        </div>
+
+        <!--JUEVES-->
+
+    </div>
 </ion-content>
