@@ -3,56 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class cursos_controller extends Controller
 {
-   
 
-    public function getCursos(){
 
-        $retorno=
-        array(
-                "lunes"=>array(
-                            array(
-                                "Hora"=> 7,
-                                "Cursos"=>
-                                    array(
-                                        array(
-                                            "Id"=>1,
-                                            "Seccion"=> "B+",
-                                            "Curso"=>"Compiladores 2",
-                                            "Edificio"=>"T3"
-                                        ),
-                                        array(
-                                            "Id"=>1,
-                                            "Seccion"=> "A",
-                                            "Curso"=>"Compiladores 2",
-                                            "Edificio"=>"T3"
-                                        )
-                                    )
-                            ),
-                            array(
-                                "Hora"=> 8,
-                                "Cursos"=>
-                                    array(
-                                        array(
-                                            "Id"=>2,
-                                            "Seccion"=> "A",
-                                            "Curso"=>"Analisis y Diseño",
-                                            "Edificio"=>"T3"
-                                        ),
-                                        array(
-                                            "Id"=>1,
-                                            "Seccion"=> "A",
-                                            "Curso"=>"Seminario de Sistemas",
-                                            "Edificio"=>"T3"
-                                        )
-                                    )
-                            ),
-                )
-            
-        );
-        return response()->json($retorno);
+    public function get_cursos_horario(Request $request){
+
+        $carnet = $request->get('carnet');
+
+        error_log("[cursos_controller]get_cursos_horario");
+
+        $items = DB::select(DB::raw("
+            SELECT *
+            FROM horarios h
+            WHERE h.idCurso IN (
+            	SELECT idCurso
+            	FROM cursospostrs cp
+            	WHERE cp.idCurso NOT IN (
+            		SELECT ca.idCurso
+            		FROM cursosaprobados ca
+            		WHERE ca.carnet = ".$carnet."
+            	)
+            )
+        "));
+
+        error_log("[/cursos_controller]get_cursos_horario");
+
+        return response()->json($items);
+
     }
 
 
@@ -63,14 +43,14 @@ class cursos_controller extends Controller
      *          carne,
      *          idCarrera
      *      )
-     *  
+     *
      *****************************
      */
 
 
     public function getCursosQuePuedeLlevar(){
 
-    
+
         error_log("[cursos_controller]getCursosQuePuedeLlevar2");
         $retorno=
         array(
@@ -102,7 +82,7 @@ class cursos_controller extends Controller
                 "Prerequisito"=>67,
                 "Postrequisito"=>34
             )
-            
+
         );
         return response()->json($retorno);
     }
@@ -116,7 +96,7 @@ class cursos_controller extends Controller
         foreach ($ar as $key => $value) {
             error_log($value->idCurso);
             error_log($value->Nombre);
-           error_log($value->asignado); 
+           error_log($value->asignado);
             error_log("---fin json---");
         }
          //error_log($json);
@@ -124,7 +104,7 @@ class cursos_controller extends Controller
        /*  foreach ($json as $item) {
             error_log($value->idCurso);
            error_log($value->Nombre);
-           error_log($value->asignado); 
+           error_log($value->asignado);
             error_log("-------------");
         } */
 
@@ -161,7 +141,7 @@ class cursos_controller extends Controller
                     "Prerequisito"=>67,
                     "Postrequisito"=>34
                 )
-            
+
         );
         error_log("[cursos_controller]getCursosQuePuedeLlevarPost");
         return response()->json($retorno);
