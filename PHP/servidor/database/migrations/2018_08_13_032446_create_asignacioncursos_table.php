@@ -19,9 +19,18 @@ class CreateAsignacioncursosTable extends Migration
             $table->integer('idSemestre');
             $table->string('nombreSeccion');
             $table->primary(['carnet','idCurso','idSemestre','nombreSeccion']);
+
+
+
             $table->boolean('aprobado')->default(false);
+
             $table->boolean('estado')->default(true);
+
             $table->foreign('carnet','idCurso','idSemestre','nombreSeccion')->references('carnet','idCurso','idSemestre','nombreSeccion')->on('estudiantes'); 
+           /* $table->foreign('idCurso')->references('idCurso')->on('Secciones'); 
+            $table->foreign('idSemestre')->references('idSemestre')->on('Secciones');
+            $table->foreign('nombreSeccion')->references('nombreSeccion')->on('Secciones');*/
+
             $table->timestamps();
         });
     }

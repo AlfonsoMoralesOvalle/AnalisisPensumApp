@@ -65,29 +65,6 @@ export class ServiciosProvider {
         return this.helper.post(url, postData).map((res:Response)=>res.json());
     }
 
-    getcursos(){
-        var url = "http://a83f1bba.ngrok.io/api/get_cursos_horario/?carnet=201213177";
-        let postData = new FormData();
-        return this.helper.get(url).map((res:Response)=>res.json());
-    }
-
-    postagregarcurso(seccion,idCurso){
-        var url = "http://a83f1bba.ngrok.io/api/post_agregar_curso_horario";
-        let postData = new FormData();
-        postData.append('carnet','201213177');
-        postData.append('id_curso',idCurso);
-        postData.append('seccion',seccion);
-        postData.append('semestre','1');
-        return this.helper.get(url).map((res:Response)=>res.json());
-    }
-
-    gethorario(){
-        var url = "http://a83f1bba.ngrok.io/api/get_horario/?carnet=201213177?semestre=1";
-        let postData = new FormData();
-        return this.helper.get(url).map((res:Response)=>res.json());
-    }
-
-
 
 
 }

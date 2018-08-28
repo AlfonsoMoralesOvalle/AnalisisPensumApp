@@ -17,8 +17,11 @@ class CreateSalonsTable extends Migration
             $table->string('idSalon');
             $table->primary(['idSalon']);
             $table->integer('capacidad')->unsigned()->nullable();
+
             $table->integer('idEdificio')->unsigned();
             $table->foreign('idEdificio')->references('idEdificio')->on('edificios'); 
+
+
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });

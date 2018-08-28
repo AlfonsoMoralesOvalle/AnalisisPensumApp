@@ -14,9 +14,11 @@ class CreateSemestresTable extends Migration
     public function up()
     {
         Schema::create('semestres', function (Blueprint $table) {
-            $table->increments('idSemestre');
+            $table->integer('idSemestre');
+            $table->primary(['idSemestre']);
             $table->integer('anio')->unsigned();
             $table->integer('numero')->unsigned();
+            
             $table->boolean('estado')->default(true);
             $table->timestamps();
         });

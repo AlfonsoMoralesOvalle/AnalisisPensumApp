@@ -18,10 +18,14 @@ class CreateCursospostrsTable extends Migration
             $table->string('idCurso');
             $table->string('idCursoPost');
             $table->primary(['idCarrera','idCurso','idCursoPost']);
+
+
             $table->boolean('estado')->default(true);
+
             $table->foreign('idCarrera')->references('idCarrera')->on('carreracursos');
             $table->foreign('idCurso')->references('idCurso')->on('carreracursos'); 
             $table->foreign('idCursoPost')->references('idCurso')->on('cursos'); 
+            
             $table->timestamps();
         });
     }
