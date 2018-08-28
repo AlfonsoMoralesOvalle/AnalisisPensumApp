@@ -11,23 +11,32 @@ import { EjemploProvider } from "../../providers/ejemplo/ejemplo";
 export class HomePage {
 
     horario
-    
-    constructor(public navCtrl: NavController, private modal: ModalController, public proveedor:ServiciosProvider, public ej:EjemploProvider) {}
+    cursos2 =[]
+    constructor(public navCtrl: NavController, private modal: ModalController, public servicio:ServiciosProvider, public ej:EjemploProvider) {}
 
     //ABRE EL MODAL PARA PODER AGREGAR UN CURSO NUEVO
     addCourse()
     {
-        const nueva = this.modal.create('AgregarCursoPage');
+        const nueva = this.modal.create('AgregarCursoPage', {cursos2: this.cursos2});
         nueva.present();
     }
 
     ionViewDidLoad() {
         //AUN NO CARGO NADA
+        this.cargarcursos();
     }
 
     cargarDatosDeDia(idDia)
     {
         
+    }
+
+    cargarcursos()
+    {
+    this.servicio.getcursos().subscribe(data => {this.cursos2.push(data)});
+    console.log("mira");
+    console.log(this.cursos2);
+    console.log("mira2");
     }
 
 }
