@@ -27,9 +27,7 @@
         <ion-item>
             <ion-label>Curso</ion-label>
             <ion-select [(ngModel)]="curso">
-              <ion-option value="Compiladores 2">Compiladores 2</ion-option>
-              <ion-option value="Analisis 1">Analisis y Diseno 1</ion-option>
-              <ion-option value="Redes 1">Redes 1</ion-option>
+                <ion-option *ngFor="let cur of cursos" value="">{{cur.nombreCurso}}</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>
