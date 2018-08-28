@@ -16,12 +16,9 @@ class CreateEstudiantesTable extends Migration
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->string('carnet');
             $table->primary(['carnet']);
-
             $table->integer('idUsuario')->unsigned();
             $table->foreign('idUsuario')->references('idUsuario')->on('usuarios'); 
-            
             $table->boolean('estado')->default(true);
-
             $table->timestamps();
         });
     }

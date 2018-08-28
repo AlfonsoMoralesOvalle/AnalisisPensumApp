@@ -15,20 +15,14 @@ class CreateSeccionesTable extends Migration
     {
         Schema::create('secciones', function (Blueprint $table) {
             $table->string('idCurso');
-            $table->integer('idSemestre');
+            $table->integer('idSemestre')->unsigned();
             $table->string('nombreSeccion');
             $table->primary(['idCurso','idSemestre','nombreSeccion']);
-
-            
-            $table->integer('idCatedratico');
-
-
+            $table->integer('idCatedratico')->unsigned();
             $table->boolean('estado')->default(true);
-        
             $table->foreign('idCatedratico')->references('idCatedratico')->on('catedraticos');
             $table->foreign('idCurso')->references('idCurso')->on('cursos'); 
             $table->foreign('idSemestre')->references('idSemestre')->on('semestres');
-            
             $table->timestamps();
         });
     }
