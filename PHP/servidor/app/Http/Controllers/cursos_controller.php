@@ -69,5 +69,42 @@ class cursos_controller extends Controller
     }
 
 
+    public function get_horario(Request $request) {
+
+        $carnet = $request->get('carnet');
+        $id_semestre = $request->get('semestre');
+
+        error_log("[cursos_controller]get_horario");
+
+        $items = DB::select(DB::raw("
+
+            SELECT
+                ac.carnet,
+                ac.idCurso,
+                ac.idSemestre,
+                ac.nombreSeccion,
+                h.hora,
+                h.dia,
+                h.idSalon,
+                c.nombreCurso
+            FROM asignacioncursos ac
+            JOIN horarios h
+            ON ac.idCurso = h.idCurso
+            AND ac.nombreSeccion = h.nombreSeccion
+            AND ac.idSemestre = h.idSemestre
+            JOIN cursos c
+            ON ac.idCurso = c.idCurso
+            WHERE ac.carnet = ".$carnet."
+            AND ac.idSemestre = ".$id_semestre."
+
+        "));
+
+        error_log("[/cursos_controller]get_horario");
+
+        return response()->json($items);
+
+    }
+
+
 
 }
