@@ -30530,6 +30530,73 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-home table.calendar {
+  margin-bottom: 0;
+}
+
+page-home table.calendar > thead > tr > th {
+  text-align: center;
+}
+
+page-home table.calendar > tbody > tr > td {
+  height: 20px;
+}
+
+page-home table.calendar > tbody > tr > td > div {
+  height: 40px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+}
+
+page-home table.calendar > tbody > tr > td.has-events {
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 4px;
+}
+
+page-home table.calendar > tbody > tr > td.has-events > div {
+  background-color: #08C;
+  border-left: 1px solid white;
+}
+
+page-home table.calendar > tbody > tr > td.has-events > div:first-child {
+  border-left: 0;
+  margin-left: 1px;
+}
+
+page-home table.calendar > tbody > tr > td.has-events > div.practice {
+  opacity: 0.7;
+}
+
+page-home table.calendar > tbody > tr > td.max-conflicts > div {
+  background-color: red;
+  color: white;
+}
+
+page-home table.calendar > tbody > tr > td.has-events > div > span {
+  display: block;
+  text-align: center;
+}
+
+page-home table.calendar > tbody > tr > td.has-events > div > span a {
+  color: white;
+}
+
+page-home table.calendar > tbody > tr > td.has-events > div > span.title {
+  font-weight: bold;
+}
+
+page-home table.table-borderless > thead > tr > th, page-home table.table-borderless > tbody > tr > td {
+  border: 0;
+}
+
+page-home .table tbody tr.hover td, page-home .table tbody tr.hover th {
+  background-color: whiteSmoke;
+}
+
 page-progreso {
   /* Text inside the control */
   /* when p>50, don't clip left half*/
