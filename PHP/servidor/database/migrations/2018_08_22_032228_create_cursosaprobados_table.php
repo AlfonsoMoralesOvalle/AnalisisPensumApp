@@ -14,21 +14,13 @@ class CreateCursosaprobadosTable extends Migration
     public function up()
     {
         Schema::create('cursosaprobados', function (Blueprint $table) {
-
-            
-
             $table->string('carnet');
             $table->string('idCurso');
             $table->string('idCarrera'); 
-
             $table->integer('idSemestre')->unsigned()->nullable();
-
             $table->primary(['carnet','idCurso','idCarrera']);
-
             $table->foreign('idCurso','idCarrera')->references('idCurso','idCarrera')->on('carreracursos');
             $table->foreign('carnet')->references('carnet')->on('estudiantes');  
-
-
             $table->timestamps();
         });
     }

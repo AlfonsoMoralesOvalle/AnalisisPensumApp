@@ -20,19 +20,11 @@ class CreateCarreracursosTable extends Migration
             $table->foreign('idCarrera')->references('idCarrera')->on('carreras'); 
             $table->foreign('idCurso')->references('idCurso')->on('cursos');
             $table->primary(['idCarrera','idCurso']);
-
             $table->boolean('obligatoria')->default(false);
             $table->integer('semestre')->unsigned();
             $table->integer('creditos')->unsigned();;
-            
- 
-
             $table->boolean('estado')->default(true);
-
-           
             $table->timestamps();
-
-
         });
     }
 

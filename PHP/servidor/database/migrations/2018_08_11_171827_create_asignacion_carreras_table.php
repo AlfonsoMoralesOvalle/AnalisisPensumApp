@@ -16,12 +16,9 @@ class CreateAsignacionCarrerasTable extends Migration
         Schema::create('asignacion_carreras', function (Blueprint $table) {
             $table->string('carnet');
             $table->foreign('carnet')->references('carnet')->on('estudiantes'); 
-
             $table->string('idCarrera');
             $table->foreign('idCarrera')->references('idCarrera')->on('carreras'); 
-
             $table->primary(['carnet','idCarrera']);
-
             $table->timestamps();
         });
     }

@@ -14,9 +14,7 @@ class CreateCatedraticosTable extends Migration
     public function up()
     {
         Schema::create('catedraticos', function (Blueprint $table) {
-            $table->integer('idCatedratico');
-            $table->primary(['idCatedratico']);
-
+            $table->increments('idCatedratico');
             $table->string('nombre');
             $table->boolean('estado')->default(true);
             $table->timestamps();

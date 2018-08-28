@@ -19,22 +19,11 @@ class CreateHorariosTable extends Migration
             $table->string('idCurso');
             $table->integer('idSemestre');
             $table->string('nombreSeccion');
-            
-
             $table->string('idSalon');
-
-
             $table->boolean('estado')->default(true);
-
             $table->foreign('idSalon')->references('idSalon')->on('salons');  
             $table->foreign('idCurso','idSemestre','nombreSeccion')->references('idCurso','idSemestre','nombreSeccion')->on('secciones'); 
-            
-            $table->primary(['idCurso','idSemestre','nombreSeccion']);
-            
-            /*$table->foreign('idCurso')->references('idCurso')->on('Secciones'); 
-            $table->foreign('idSemestre')->references('idSemestre')->on('Secciones');
-            $table->foreign('nombreSeccion')->references('nombreSeccion')->on('Secciones');*/
-
+            $table->primary(['hora','dia','idSalon']);
             $table->timestamps();
         });
     }
