@@ -17,8 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get ('get_cursos_horario', 'cursos_controller@get_cursos_horario');
-Route::post ('post_obtenerCursosQuePuedeLlevar' ,'cursos_controller@getCursosQuePuedeLlevarPost');
+Route::get ('get_cursos_horario','cursos_controller@get_cursos_horario');
+Route::post ('post_agregar_curso_horario','cursos_controller@post_agregar_curso_horario');
 
 
 //Pensum

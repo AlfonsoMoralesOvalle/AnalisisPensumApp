@@ -36,114 +36,38 @@ class cursos_controller extends Controller
     }
 
 
-    /*
-     *****************************
-     *  getCursos
-     *      (
-     *          carne,
-     *          idCarrera
-     *      )
-     *
-     *****************************
-     */
+    public function post_agregar_curso_horario(Request $request) {
 
+        $carnet = $request->get('carnet');
+        $id_curso = $request->get('id_curso');
+        $seccion = $request->get('seccion');
+        $id_semestre = $request->get('semestre');
 
-    public function getCursosQuePuedeLlevar(){
+        error_log("[cursos_controller]post_agregar_curso_horario");
 
-
-        error_log("[cursos_controller]getCursosQuePuedeLlevar2");
-        $retorno=
-        array(
-            array(
-                "idCurso"=>1,
-                "Nombre"=>"Compiladores 2",
-                "Creditos"=>5,
-                "Prerequisito"=>3,
-                "Postrequisito"=>90
-            ),
-            array(
-                "idCurso"=>2,
-                "Nombre"=>"Analisis y Diseño 1",
-                "Creditos"=>5,
-                "Prerequisito"=>4,
-                "Postrequisito"=>34
-            ),
-            array(
-                "idCurso"=>3,
-                "Nombre"=>"Estructura de Datos",
-                "Creditos"=>5,
-                "Prerequisito"=>234,
-                "Postrequisito"=>54
-            ),
-            array(
-                "idCurso"=>4,
-                "Nombre"=>"Base de datos 1",
-                "Creditos"=>1,
-                "Prerequisito"=>67,
-                "Postrequisito"=>34
-            )
-
+        $id = DB::table('asignacioncursos')->insertGetId(
+            [
+                "carnet"        => $carnet,
+                "idCurso"       => $id_curso,
+                "idSemestre"    => $id_semestre,
+                "nombreSeccion" => $seccion,
+                "aprobado"      => 0,
+                "estado"        => 1
+            ]
         );
-        return response()->json($retorno);
-    }
 
-    public function getCursosQuePuedeLlevarPost(Request $request){
-        error_log("--------celular------------------------");
-        error_log($request->get('carnet'));
-        $json=$request->get('json');
-        $ar = json_decode($json);
+        error_log("[/cursos_controller]post_agregar_curso_horario");
 
-        foreach ($ar as $key => $value) {
-            error_log($value->idCurso);
-            error_log($value->Nombre);
-           error_log($value->asignado);
-            error_log("---fin json---");
+        if(empty($id)){
+            $respuesta = TRUE;
+        }else{
+            $respuesta = FALSE;
         }
-         //error_log($json);
-                 //$array = $json->all();
-       /*  foreach ($json as $item) {
-            error_log($value->idCurso);
-           error_log($value->Nombre);
-           error_log($value->asignado);
-            error_log("-------------");
-        } */
 
+        return response()->json($respuesta);
 
-
-        error_log($request);
-        $retorno=
-        array(
-                array(
-                    "idCurso"=>1,
-                    "Nombre"=>"Compiladores 2",
-                    "Creditos"=>5,
-                    "Prerequisito"=>3,
-                    "Postrequisito"=>90
-                ),
-                array(
-                    "idCurso"=>2,
-                    "Nombre"=>"Analisis y Diseño 1",
-                    "Creditos"=>5,
-                    "Prerequisito"=>4,
-                    "Postrequisito"=>34
-                ),
-                array(
-                    "idCurso"=>3,
-                    "Nombre"=>"Estructura de Datos",
-                    "Creditos"=>5,
-                    "Prerequisito"=>234,
-                    "Postrequisito"=>54
-                ),
-                array(
-                    "idCurso"=>4,
-                    "Nombre"=>"Base de datos 1",
-                    "Creditos"=>1,
-                    "Prerequisito"=>67,
-                    "Postrequisito"=>34
-                )
-
-        );
-        error_log("[cursos_controller]getCursosQuePuedeLlevarPost");
-        return response()->json($retorno);
     }
+
+
+
 }
