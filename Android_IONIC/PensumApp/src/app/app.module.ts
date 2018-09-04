@@ -17,6 +17,7 @@ import { ServiciosProvider } from '../providers/servicios/servicios';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { EjemploProvider } from '../providers/ejemplo/ejemplo';
 import { HttpModule } from '@angular/http';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { HttpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiciosProvider,
     UserServiceProvider,
