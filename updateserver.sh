@@ -11,6 +11,7 @@ sudo composer install
 sudo chown www-data:www-data -R /var/www/html/servidor/
 sudo php artisan make:migration
 #para cargar los datos a la DB
-php artisan db:seed --class=catedraticos
-php artisan db:seed --class=cursos
-php artisan db:seed --class=carreras
+sudo php artisan db:seed --class=catedraticos
+sudo php artisan db:seed --class=cursos
+sudo php artisan db:seed --class=carreras
+sudo php artisan db:seed --class=carreracursos
