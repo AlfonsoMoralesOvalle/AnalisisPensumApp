@@ -95,7 +95,7 @@ export class ServiciosProvider {
 
     getListCourse()
     {
-        var url = this.dominio+"/api/get_obtenerCarreras";
+        var url = "http://35.237.133.63:8000/api/get_obtenerCarreras";
         return this.helper.get(url).map((res:Response)=>res.json());
     }
 
@@ -106,7 +106,8 @@ export class ServiciosProvider {
 
     registroUsuario(carnet, usuario, nombre, password, idCarrera)
     {
-        var url = this.dominio + "/api/post_registrarNuevoUsuario";
+        //var url = this.dominio + "/api/post_registrarNuevoUsuario";
+        var url = "http://35.237.133.63:8000/api/post_registrarNuevoUsuario"
         let postData = new FormData();
         postData.append('carnet', carnet);
         postData.append('usuario', usuario);
@@ -122,11 +123,11 @@ export class ServiciosProvider {
 
     realizarLogIn(usuario, password)
     {
-        var url = "";
+        var url = "http://35.237.133.63:8000/api/post_login";
         let postData = new FormData();
         postData.append('usuario', usuario);
         postData.append('password', password);
-        return this.helper.get(url).map((res:Response)=>res.json());
+        return this.helper.post(url, postData).map((res:Response)=>res.json());
     }
 
 

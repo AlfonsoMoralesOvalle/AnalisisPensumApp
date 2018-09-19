@@ -67,8 +67,19 @@ export class RegistroPage {
       setTimeout(() => {
         loader.dismiss();
         this.mensaje(mens.mensaje,"Respuesta");
+        if(mens.respuesta == 1)
+        {
+          this.carnet.value = "";
+          this.email.value = "";
+          this.carrera = "";
+          this.password.value = "";
+          this.nombre.value = "";
+        }
         mens = null;
       }, 3000);
+
+      
+
     }
 
   }
