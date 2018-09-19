@@ -30,3 +30,13 @@ Route::post('pensum_asignarCursosAprobadosPensum','pensum_controller@asignarCurs
 Route::post('pensum_desasignarCursosAprobadosPensum','pensum_controller@desasignarCursosAprobadosPensum');
 
 Route::post('obtenerProgresoDeLaCarrera','pensum_controller@progresoCarrera');
+
+
+//Registro de Usuarios
+
+Route::get('get_obtenerCarreras', 'registroUsuarios_controller@obtenerCarreras'); 
+Route::post('post_registrarNuevoUsuario', 'registroUsuarios_controller@registrarUsuario'); 
+Route::get('get_borrarTodosLosUsuarios', 'registroUsuarios_controller@borrarTodosLosUsuarios');
+
+//Login
+Route::post('post_login', 'login_controller@loginEstudiante');
