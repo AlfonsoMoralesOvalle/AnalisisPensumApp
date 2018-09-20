@@ -3,7 +3,7 @@ sudo git reset --hard
 sudo git checkout db_registro
 sudo git pull
 
-#Actualizando db
+#Actualizando db 
 sudo composer dump-autoload
 sudo php artisan migrate:refresh
 sudo php artisan db:seed
