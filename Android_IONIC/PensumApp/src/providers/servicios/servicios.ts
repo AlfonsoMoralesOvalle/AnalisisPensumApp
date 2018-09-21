@@ -13,7 +13,10 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class ServiciosProvider {
+    
     dominio = "https://vast-waters-26850.herokuapp.com"
+    dominio_alt = "http://localhost:8000/api/";
+
     constructor(public helper:Http) {
         console.log('Hello ServiciosProvider Provider');
     }
@@ -65,6 +68,11 @@ export class ServiciosProvider {
         return this.helper.post(url, postData).map((res:Response)=>res.json());
     }
 
+    getServCursosParaHorario() {
+        var url = this.dominio_alt + "get_cursos_horario?carnet=201213177";
+        return this.helper.get(url).map((res:Response)=>res.json());
+    }
+
     getcursos(){
         var url = "http://a83f1bba.ngrok.io/api/get_cursos_horario/?carnet=201213177";
         let postData = new FormData();
@@ -86,8 +94,5 @@ export class ServiciosProvider {
         let postData = new FormData();
         return this.helper.get(url).map((res:Response)=>res.json());
     }
-
-
-
 
 }
