@@ -1,0 +1,65 @@
+<!--
+  Generated template for the RegistroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="lblue">
+    <ion-title>Registro de Usuario</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div text-center>
+      <!--INPUT DE IMAGEN https://drive.google.com/file/d/1SfS5_qjO4PiCquwXo880zNJY0dlkpMZ0/view?usp=sharing -->
+      <!-- https://drive.google.com/file/d/1IsrWxxKpgmCM3Qnz8TYJonT5gNQD0Uoi/view?usp=sharing -->
+      <ion-img width="200px" height="230px" src="http://docs.google.com/uc?id=1IsrWxxKpgmCM3Qnz8TYJonT5gNQD0Uoi"></ion-img>
+    </div>
+  
+  <br>
+ 
+  <div text-center><h1> Registro de Usuario </h1></div>
+  
+  <ion-list inset>
+      <ion-item>
+        <ion-label>Nombre:</ion-label>
+        <ion-input required type="text" #nombre></ion-input>
+        </ion-item>
+    <ion-item>
+
+      <ion-label>Email</ion-label>
+      <ion-input required type="email" #email></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Carnet</ion-label>
+      <ion-input required type="number" #carnet></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input required type="password" #password></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Carrera</ion-label>
+      <ion-select [(ngModel)]="carrera" (change)="update(carrera)">
+      <div *ngFor="let c of cursos">
+        <ion-option value="{{c.idCarrera}}">{{c.nombre}}</ion-option>
+      </div>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <div>
+      <button full ion-button block (click)="registrar()" >Registrar Usuario</button>
+  </div>
+
+</ion-content>
