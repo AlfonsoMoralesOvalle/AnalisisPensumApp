@@ -17,9 +17,7 @@ pipeline{
     }
     stage('Deploy'){
       steps{
-        script{
-          echo "Resultado : finished"
-        }
+        sh "echo \"Resultado : finished\""
         }
     }
 }
