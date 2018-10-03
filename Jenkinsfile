@@ -13,14 +13,12 @@ pipeline{
       }
     }
     stage('Test'){
-      steps{
-        
-      }
+     
     }
     stage('Deploy'){
       steps{
         script{
-        echo "Resultado : finished"
+          echo "Resultado : finished"
         }
         }
     }
