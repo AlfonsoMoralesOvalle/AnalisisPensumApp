@@ -12,9 +12,6 @@ pipeline{
         sh "sudo chown www-data:www-data -R /var/www/html/servidor/"
       }
     }
-    stage('Test'){
-     
-    }
     stage('Deploy'){
       steps{
         sh "echo \"Resultado : finished\""
