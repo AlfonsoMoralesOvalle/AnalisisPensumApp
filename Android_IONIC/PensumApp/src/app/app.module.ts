@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { LogInPage } from "../pages/log-in/log-in";
 import { ProgresoPage } from "../pages/progreso/progreso";
 import { VerPensumPage } from "../pages/ver-pensum/ver-pensum";
+import { RegistroPage } from "../pages/registro/registro";
 //import { AgregarCursoPage } from "../pages/agregar-curso/agregar-curso";
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -17,6 +18,7 @@ import { ServiciosProvider } from '../providers/servicios/servicios';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { EjemploProvider } from '../providers/ejemplo/ejemplo';
 import { HttpModule } from '@angular/http';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { HttpModule } from '@angular/http';
     ListPage,
     LogInPage,
     ProgresoPage,
-    VerPensumPage
+    VerPensumPage,
+    RegistroPage
     //AgregarCursoPage
   ],
   imports: [
@@ -42,12 +45,14 @@ import { HttpModule } from '@angular/http';
     ListPage,
     LogInPage,
     ProgresoPage,
-    VerPensumPage
+    VerPensumPage,
+    RegistroPage
     //AgregarCursoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiciosProvider,
     UserServiceProvider,

@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { LogInPage } from '../pages/log-in/log-in';
 import { ProgresoPage } from "../pages/progreso/progreso";
 import { VerPensumPage } from "../pages/ver-pensum/ver-pensum";
+import { RegistroPage } from "../pages/registro/registro";
  
 @Component({
   templateUrl: 'app.html'

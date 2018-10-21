@@ -19,23 +19,27 @@
     <!--INPUT DE IMAGEN https://drive.google.com/file/d/1SfS5_qjO4PiCquwXo880zNJY0dlkpMZ0/view?usp=sharing -->
     <ion-img width="200px" height="230px" src="http://docs.google.com/uc?id=1WQJg8Alo_iXM4knxGKL9OwZql5nAIdAY"></ion-img>
   </div>
-
+  
   <ion-list inset>
 
     <ion-item>
       <ion-label>Usuario</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" #usuario></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label>Password</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" #password></ion-input>
     </ion-item>
 
   </ion-list>
 
   <div>
-      <button full ion-button block (click)="Ingresar()">Sign In</button>
+      <button full ion-button block (click)="Ingresar()">Ingresar</button>
+  </div>
+  <br>
+  <div>
+      <button full ion-button block (click)="Registrar()"> Registrarse </button>
   </div>
 
 </ion-content>

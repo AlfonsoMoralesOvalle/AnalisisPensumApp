@@ -88,6 +88,47 @@ export class ServiciosProvider {
     }
 
 
+    /*
+     * METODO PARA OBTENER LOS CURSOS DE LA API
+     * ME RETORNA LOS CURSOS PARA LA PANTALLA DE REGISTRO DE USUARIO
+    */
+
+    getListCourse()
+    {
+        var url = "http://35.237.133.63:8000/api/get_obtenerCarreras";
+        return this.helper.get(url).map((res:Response)=>res.json());
+    }
+
+    /*
+     * METODO PARA REALIZAR EL REGISTRO DE USUARIO
+     * ME RETORNA UNA CONFIRMACION SI SE HIZO COMO DEBERIA
+    */
+
+    registroUsuario(carnet, usuario, nombre, password, idCarrera)
+    {
+        //var url = this.dominio + "/api/post_registrarNuevoUsuario";
+        var url = "http://35.237.133.63:8000/api/post_registrarNuevoUsuario"
+        let postData = new FormData();
+        postData.append('carnet', carnet);
+        postData.append('usuario', usuario);
+        postData.append('nombre', nombre);
+        postData.append('password', password);
+        postData.append('idCarrera', idCarrera);
+        return this.helper.post(url, postData).map((res:Response)=>res.json());
+    }
+
+    /*
+     * METODO PARA REALIZAR EL LOGIN
+    */
+
+    realizarLogIn(usuario, password)
+    {
+        var url = "http://35.237.133.63:8000/api/post_login";
+        let postData = new FormData();
+        postData.append('usuario', usuario);
+        postData.append('password', password);
+        return this.helper.post(url, postData).map((res:Response)=>res.json());
+    }
 
 
 }

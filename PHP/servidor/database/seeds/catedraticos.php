@@ -11,11 +11,7 @@ class catedraticos extends Seeder
      */
     public function run()
     {
-
-      DB::table('catedraticos')->insert([
-                  'idCatedratico' => 0,
-                  'nombre' => " MARIO ESTUARDO ARRIOLA AVILA "
-              ]);
+ 
       DB::table('catedraticos')->insert([
                   'idCatedratico' => 1,
                   'nombre' => " NICOLAS DE JESUS GUZMAN SAENZ "
