@@ -28,7 +28,9 @@ export class ProgresoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgresoPage');
-    
+    var usuario=this.servicio.getUser();
+    console.log(usuario);
+
     const loader = this.loadingCtrl.create({
       content: "Cargando...",
     });

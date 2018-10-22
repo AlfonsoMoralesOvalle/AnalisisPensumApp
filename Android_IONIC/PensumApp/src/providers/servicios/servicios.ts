@@ -17,6 +17,8 @@ export class ServiciosProvider {
     constructor(public helper:Http) {
         console.log('Hello ServiciosProvider Provider');
     }
+    
+    user : any;
 
     pensum : any
     //FUNCION ENCARGADA DE PODER TRAER EL PENSUM NECESARIO
@@ -60,8 +62,8 @@ export class ServiciosProvider {
     {
         var url = this.dominio+"/api/obtenerProgresoDeLaCarrera";
         let postData = new FormData();
-        postData.append('carnet','201503476');
-        postData.append('idCarrera','09');
+        postData.append('carnet',this.user.carnet);
+        postData.append('idCarrera',this.user.idCarrera);
         return this.helper.post(url, postData).map((res:Response)=>res.json());
     }
 
@@ -130,5 +132,36 @@ export class ServiciosProvider {
         return this.helper.post(url, postData).map((res:Response)=>res.json());
     }
 
+    /**
+     * METODO QUE GUARDA LA INFORMACION DEL USUARIO
+     */
+    saveUser(carnet, carrera, usuario2)
+    {
+        this.user = new usuario(carnet, carrera, usuario2);
+    }
 
+
+    /**
+     * METODO QUE DEVUELVE EL USUARIO
+     */
+    getUser(){
+        return this.user;
+    }
+
+
+
+}
+
+class usuario 
+{
+    carnet: 0;
+    idCarrera: 0;
+    usuario : "";
+
+    constructor(carnet, idcarrera, usuario)
+    {
+        this.carnet = carnet;
+        this.idCarrera = idcarrera;
+        this.usuario = usuario;
+    }
 }
