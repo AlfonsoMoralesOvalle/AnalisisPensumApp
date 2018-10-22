@@ -17,7 +17,7 @@ export class ServiciosProvider {
     constructor(public helper:Http) {
         console.log('Hello ServiciosProvider Provider');
     }
-
+    user : any;
     pensum : any
     //FUNCION ENCARGADA DE PODER TRAER EL PENSUM NECESARIO
     getPensum(idSemestre)
@@ -130,5 +130,34 @@ export class ServiciosProvider {
         return this.helper.post(url, postData).map((res:Response)=>res.json());
     }
     
+    /**
+     * METODO QUE GUARDA LA INFORMACION DEL USUARIO
+     */
+    saveUser(carnet, carrera, usuario2)
+    {
+        this.user = new usuario(carnet, carrera, usuario2);
+    }
 
+    /**
+     * METODO QUE DEVUELVE EL USUARIO
+     */
+    getUser(){
+        return this.user;
+    }
+	
+
+}
+
+class usuario 
+{
+    carnet: 0;
+    idCarrera: 0;
+    usuario : "";
+
+    constructor(carnet, idcarrera, usuario)
+    {
+        this.carnet = carnet;
+        this.idCarrera = idcarrera;
+        this.usuario = usuario;
+    }
 }
