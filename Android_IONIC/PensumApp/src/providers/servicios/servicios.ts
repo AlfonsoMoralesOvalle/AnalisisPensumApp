@@ -129,6 +129,6 @@ export class ServiciosProvider {
         postData.append('password', password);
         return this.helper.post(url, postData).map((res:Response)=>res.json());
     }
-
+    
 
 }
