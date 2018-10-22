@@ -9,6 +9,7 @@ import { LogInPage } from '../pages/log-in/log-in';
 import { ProgresoPage } from "../pages/progreso/progreso";
 import { VerPensumPage } from "../pages/ver-pensum/ver-pensum";
 import { RegistroPage } from "../pages/registro/registro";
+import { NoticiasPage } from "../pages/noticias/noticias";
  
 @Component({
   templateUrl: 'app.html'
@@ -30,7 +31,8 @@ export class MyApp {
       //{ title: 'List', component: ListPage }
       { title: 'Ver Mi Progreso', component: ProgresoPage },
       { title: 'Log Out', component: LogInPage },
-      { title: 'Ver Pensum', component: VerPensumPage }
+      { title: 'Ver Pensum', component: VerPensumPage },
+      { title: 'Noticias', component: NoticiasPage}
     ];
 
   }
