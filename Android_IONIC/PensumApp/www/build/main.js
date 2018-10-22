@@ -1,4 +1,4 @@
-webpackJsonp([6],{
+webpackJsonp([7],{
 
 /***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -207,7 +207,7 @@ var RegistroPage = /** @class */ (function () {
     ], RegistroPage.prototype, "carnet", void 0);
     RegistroPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-registro',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\registro\registro.html"*/'<!--\n  Generated template for the RegistroPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="lblue">\n    <ion-title>Registro de Usuario</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <div text-center>\n      <!--INPUT DE IMAGEN https://drive.google.com/file/d/1SfS5_qjO4PiCquwXo880zNJY0dlkpMZ0/view?usp=sharing -->\n      <!-- https://drive.google.com/file/d/1IsrWxxKpgmCM3Qnz8TYJonT5gNQD0Uoi/view?usp=sharing -->\n      <ion-img width="200px" height="230px" src="http://docs.google.com/uc?id=1IsrWxxKpgmCM3Qnz8TYJonT5gNQD0Uoi"></ion-img>\n    </div>\n  \n  <br>\n \n  <div text-center><h1> Registro de Usuario </h1></div>\n  \n  <ion-list inset>\n      <ion-item>\n        <ion-label>Nombre:</ion-label>\n        <ion-input required type="text" #nombre></ion-input>\n        </ion-item>\n    <ion-item>\n\n      <ion-label>Email</ion-label>\n      <ion-input required type="email" #email></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Carnet</ion-label>\n      <ion-input required type="number" #carnet></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label>Password</ion-label>\n      <ion-input required type="password" #password></ion-input>\n    </ion-item>\n\n  </ion-list>\n\n  <ion-list>\n    <ion-item>\n      <ion-label>Carrera</ion-label>\n      <ion-select [(ngModel)]="carrera" (change)="update(carrera)">\n      <div *ngFor="let c of cursos">\n        <ion-option value="{{c.idCarrera}}">{{c.nombre}}</ion-option>\n      </div>\n      </ion-select>\n    </ion-item>\n  </ion-list>\n\n  <div>\n      <button full ion-button block (click)="registrar()" >Registrar Usuario</button>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\registro\registro.html"*/,
+            selector: 'page-registro',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\registro\registro.html"*/'<!--\n\n  Generated template for the RegistroPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar color="lblue">\n\n    <ion-title>Registro de Usuario</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <div text-center>\n\n      <!--INPUT DE IMAGEN https://drive.google.com/file/d/1SfS5_qjO4PiCquwXo880zNJY0dlkpMZ0/view?usp=sharing -->\n\n      <!-- https://drive.google.com/file/d/1IsrWxxKpgmCM3Qnz8TYJonT5gNQD0Uoi/view?usp=sharing -->\n\n      <ion-img width="200px" height="230px" src="http://docs.google.com/uc?id=1IsrWxxKpgmCM3Qnz8TYJonT5gNQD0Uoi"></ion-img>\n\n    </div>\n\n  \n\n  <br>\n\n \n\n  <div text-center><h1> Registro de Usuario </h1></div>\n\n  \n\n  <ion-list inset>\n\n      <ion-item>\n\n        <ion-label>Nombre:</ion-label>\n\n        <ion-input required type="text" #nombre></ion-input>\n\n        </ion-item>\n\n    <ion-item>\n\n\n\n      <ion-label>Email</ion-label>\n\n      <ion-input required type="email" #email></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Carnet</ion-label>\n\n      <ion-input required type="number" #carnet></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label>Password</ion-label>\n\n      <ion-input required type="password" #password></ion-input>\n\n    </ion-item>\n\n\n\n  </ion-list>\n\n\n\n  <ion-list>\n\n    <ion-item>\n\n      <ion-label>Carrera</ion-label>\n\n      <ion-select [(ngModel)]="carrera" (change)="update(carrera)">\n\n      <div *ngFor="let c of cursos">\n\n        <ion-option value="{{c.idCarrera}}">{{c.nombre}}</ion-option>\n\n      </div>\n\n      </ion-select>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <div>\n\n      <button full ion-button block (click)="registrar()" >Registrar Usuario</button>\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\registro\registro.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__["a" /* ServiciosProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], RegistroPage);
@@ -218,7 +218,7 @@ var RegistroPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 107:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -319,16 +319,17 @@ var ProgresoPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-progreso',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\progreso\progreso.html"*/'<!--\n\n  Generated template for the ProgresoPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    <ion-navbar hideBackButton color="lblue">\n\n      <button ion-button menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      <ion-title>\n\n        <ion-icon name="bicycle"></ion-icon>\n\n        Progreso de Pensum\n\n      </ion-title>\n\n    </ion-navbar>\n\n  </ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-refresher (ionRefresh)="refrescar($event)">\n\n      <ion-refresher-content></ion-refresher-content>\n\n  </ion-refresher>\n\n  <ion-list no-border >\n\n\n\n    <ion-list-header>\n\n        Mi Progreso\n\n    </ion-list-header>\n\n    \n\n    <ion-item>\n\n      <div text-center>\n\n        <!-- progress-circle porcentaje donde porcentaje debe ser un numero entero -->\n\n        <div class="progress-circle p{{data.porcentaje}}">\n\n          <span>{{data.porcentaje}}%</span>\n\n          <div class="left-half-clipper">\n\n            <div class="first50-bar"></div>\n\n            <div class="value-bar"></div>\n\n          </div>\n\n        </div>\n\n       </div>\n\n        <h2>Sigue asi llevas el {{data.porcentaje}} % de</h2>\n\n        <h2> Ingenieria en ciencias y sistemas</h2>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      Creditos\n\n      <ion-icon name=\'md-card\' item-left></ion-icon>\n\n      <ion-badge item-right>{{data.numCreditos}}</ion-badge>\n\n    </ion-item>\n\n    \n\n    <ion-item>\n\n        Cursos Aprobados\n\n        <ion-icon name=\'ios-bookmark\' item-left></ion-icon>\n\n        <ion-badge  color="secondary" item-right>{{data.numAprobados}}</ion-badge>\n\n    </ion-item>\n\n    \n\n</ion-list>\n\n\n\n<ion-list-header color="dark">\n\n  Mi Pensum\n\n</ion-list-header>  \n\n\n\n<ion-slides style="width:100%; height:50vh">\n\n<div *ngFor="let sem of semestre; let i = index">\n\n<ion-slide>\n\n  <ion-list>\n\n      <ion-scroll style="width:100%; height:60vh" scrollY="true">\n\n          <ion-item></ion-item>\n\n          <ion-list-header color="primary">\n\n                {{i+1}} Semestre\n\n          </ion-list-header>\n\n          <div *ngFor="let curso of sem">\n\n          <ion-item >\n\n            <ion-thumbnail item-start >\n\n                <ion-badge class = "detcurso2" >Codigo: {{curso.idCurso}}</ion-badge><br/><br/>\n\n                <ion-badge class = "detcurso">Creditos: {{curso.creditos}}</ion-badge>\n\n            </ion-thumbnail>\n\n            <ion-thumbnail item-left >\n\n            <div *ngIf="curso.asignado"> \n\n                <h2>{{curso.Nombre}}</h2>\n\n                <ion-badge  color="secondary" >Estado: Aprobado</ion-badge>\n\n            </div>\n\n            <div div *ngIf="!curso.asignado"> \n\n                <h2>{{curso.Nombre}}</h2>\n\n                <ion-badge  color="primary" >Estado: inactivo</ion-badge>\n\n            </div>\n\n            </ion-thumbnail>\n\n            <ion-thumbnail item-right>\n\n                <h2>PostRequisito:</h2>\n\n                <ion-badge class = "req" >{{curso.posrequisito}}</ion-badge>\n\n            </ion-thumbnail>\n\n          </ion-item>\n\n          </div>\n\n      </ion-scroll>\n\n  </ion-list>\n\n</ion-slide>\n\n</div>  \n\n    \n\n</ion-slides>\n\n\n\n\n\n\n\n<ion-list>\n\n    <ion-item></ion-item>\n\n    <ion-list-header color="dark">\n\n        !Cursos que puedo seguir!\n\n    </ion-list-header>\n\n    <!--\n\n    <div *ngFor="let c of cursos">\n\n      <ion-item>\n\n        <ion-thumbnail item-start>\n\n          <img src="assets/imgs/cursos.png">\n\n        </ion-thumbnail>\n\n        <h2>{{c.Nombre}}</h2>\n\n        <p>Codigo: {{c.idCurso}}</p>\n\n        <div *ngIf="existe(c.idCurso)">\n\n          <button ion-button clear item-end color="danger" (click)="quitarInteresado(c.idCurso)">Quitar de Interesados</button>\n\n        </div>\n\n        <div *ngIf="!existe(c.idCurso)">\n\n          <button ion-button clear item-end (click)="agregarInteresado(c.idCurso)">Me Interesa Seguir</button>\n\n        </div>\n\n      </ion-item>\n\n    </div>\n\n\n\n  -->\n\n\n\n</ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\progreso\progreso.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_ejemplo_ejemplo__["a" /* EjemploProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__providers_servicios_servicios__["a" /* ServiciosProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_ejemplo_ejemplo__["a" /* EjemploProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_ejemplo_ejemplo__["a" /* EjemploProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__providers_servicios_servicios__["a" /* ServiciosProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_servicios_servicios__["a" /* ServiciosProvider */]) === "function" && _f || Object])
     ], ProgresoPage);
     return ProgresoPage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=progreso.js.map
 
 /***/ }),
 
-/***/ 108:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -425,7 +426,7 @@ var VerPensumPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 120:
+/***/ 121:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -438,36 +439,40 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 120;
+webpackEmptyAsyncContext.id = 121;
 
 /***/ }),
 
-/***/ 161:
+/***/ 162:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/agregar-curso/agregar-curso.module": [
-		285,
+		286,
 		1
 	],
 	"../pages/log-in/log-in.module": [
-		286,
+		287,
+		6
+	],
+	"../pages/noticias/noticias.module": [
+		288,
 		5
 	],
 	"../pages/pensum/pensum.module": [
-		287,
+		289,
 		0
 	],
 	"../pages/progreso/progreso.module": [
-		288,
+		290,
 		4
 	],
 	"../pages/registro/registro.module": [
-		289,
+		291,
 		3
 	],
 	"../pages/ver-pensum/ver-pensum.module": [
-		290,
+		292,
 		2
 	]
 };
@@ -482,18 +487,18 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 161;
+webpackAsyncContext.id = 162;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 206:
+/***/ 207:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(228);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -501,7 +506,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 227:
+/***/ 228:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -510,20 +515,20 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(282);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(283);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_list_list__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_list_list__ = __webpack_require__(284);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_log_in_log_in__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_progreso_progreso__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_ver_pensum_ver_pensum__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_progreso_progreso__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_ver_pensum_ver_pensum__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_registro_registro__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_servicios_servicios__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_user_service_user_service__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_user_service_user_service__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_ejemplo_ejemplo__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_http__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_local_notifications__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_http__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_local_notifications__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -571,6 +576,7 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/agregar-curso/agregar-curso.module#AgregarCursoPageModule', name: 'AgregarCursoPage', segment: 'agregar-curso', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/log-in/log-in.module#LogInPageModule', name: 'LogInPage', segment: 'log-in', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/noticias/noticias.module#NoticiasPageModule', name: 'NoticiasPage', segment: 'noticias', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pensum/pensum.module#PensumPageModule', name: 'PensumPage', segment: 'pensum', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/progreso/progreso.module#ProgresoPageModule', name: 'ProgresoPage', segment: 'progreso', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/registro/registro.module#RegistroPageModule', name: 'RegistroPage', segment: 'registro', priority: 'low', defaultHistory: [] },
@@ -609,19 +615,19 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 282:
+/***/ 283:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_log_in_log_in__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_progreso_progreso__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ver_pensum_ver_pensum__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_progreso_progreso__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ver_pensum_ver_pensum__ = __webpack_require__(109);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -677,21 +683,22 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\app\app.html"*/'<ion-menu [content]="content" persistent="true">\n\n  <ion-header>\n\n    <ion-toolbar color="lblue">\n\n      <ion-title>\n\n        <ion-icon name="apps"></ion-icon>\n\n        Menu Principal\n\n      </ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        <ion-icon name="arrow-forward"></ion-icon>\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 283:
+/***/ 284:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -748,7 +755,7 @@ var ListPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 284:
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -797,8 +804,8 @@ var UserServiceProvider = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServiciosProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(253);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -935,7 +942,7 @@ var ServiciosProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_ejemplo_ejemplo__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1147,5 +1154,5 @@ var EjemploProvider = /** @class */ (function () {
 
 /***/ })
 
-},[206]);
+},[207]);
 //# sourceMappingURL=main.js.map
