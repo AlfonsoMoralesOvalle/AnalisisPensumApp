@@ -886,7 +886,7 @@ var ServiciosProvider = /** @class */ (function () {
      * ME RETORNA LOS CURSOS PARA LA PANTALLA DE REGISTRO DE USUARIO
     */
     ServiciosProvider.prototype.getListCourse = function () {
-        var url = "http://35.237.133.63:8000/api/get_obtenerCarreras";
+        var url = "http://35.227.133.63:8000/api/get_obtenerCarreras";
         return this.helper.get(url).map(function (res) { return res.json(); });
     };
     /*
@@ -895,7 +895,7 @@ var ServiciosProvider = /** @class */ (function () {
     */
     ServiciosProvider.prototype.registroUsuario = function (carnet, usuario, nombre, password, idCarrera) {
         //var url = this.dominio + "/api/post_registrarNuevoUsuario";
-        var url = "http://35.237.133.63:8000/api/post_registrarNuevoUsuario";
+        var url = "http://35.227.133.63:8000/api/post_registrarNuevoUsuario";
         var postData = new FormData();
         postData.append('carnet', carnet);
         postData.append('usuario', usuario);
@@ -908,7 +908,7 @@ var ServiciosProvider = /** @class */ (function () {
      * METODO PARA REALIZAR EL LOGIN
     */
     ServiciosProvider.prototype.realizarLogIn = function (usuario, password) {
-        var url = "http://35.237.133.63:8000/api/post_login";
+        var url = "http://35.227.133.63:8000/api/post_login";
         var postData = new FormData();
         postData.append('usuario', usuario);
         postData.append('password', password);
