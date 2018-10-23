@@ -19,4 +19,14 @@ class Admin_controller extends Controller
 
     }
 
+    public function registro_view(Request $request) {
+
+        if($request->session()->has('usuario_log')) {
+            return view('admin');
+        }else{
+            return view('admin_registro');
+        }
+
+    }
+
 }
