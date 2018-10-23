@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                <h2>Seccion de noticias</h2>
+                <h2>Sección de noticias</h2>
                    
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,8 +52,10 @@
      @endif
     <br/>
     <br/>
-      <h4>Nueva noticia</h4><br/>
-      <form method="post" action="{{url('nuevaNoticia')}}" enctype="multipart/form-data">
+      <h4>Editar noticia</h4><br/>
+      
+      
+      <form method="post" action="{{action('noticias_controller@update', $id)}}" enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col-md-4"></div>
@@ -75,6 +77,8 @@
             <button type="submit" class="btn btn-success">Enviar</button>
           </div>
         </div>
-      </form> 
+      </form>
+
+      </div>
   </body>
 </html>

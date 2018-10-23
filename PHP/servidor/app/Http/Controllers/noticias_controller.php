@@ -26,9 +26,9 @@ class noticias_controller extends Controller
             'hora'=>date("H:i:s")
         ]);
  
-        $noticia->save(); 
-        error_log("Noticia guardada");
-        return redirect('Noticias')->with('success', 'La nueva noticia fue agregada con éxito');
+        $noticia->save();  
+        
+       return redirect('get_news')->with('success','La nueva noticia fue agregada con éxito'); 
     }
 
 
@@ -37,7 +37,7 @@ class noticias_controller extends Controller
     |--------------------------------------------------------------------------
     | Retornar todas las Noticias
     |--------------------------------------------------------------------------
-    | Se guardará la nueva noticia
+    | Listado de todas las noticias
     |
     */
 
@@ -56,14 +56,79 @@ class noticias_controller extends Controller
     |--------------------------------------------------------------------------
     | Mostrar en la página la lista de noticias
     |--------------------------------------------------------------------------
-    | Listado de todas las noticias 
+    | Listado de todas las noticias pero en la vista listaNoticias
     |
     */
 
     public function index(){
-        $passports=\App\noticia::all();
-        return view('Noticias/listaNoticias',compact('passports'));
+        $noticias=\App\noticia::all();
+        return view('Noticias/listaNoticias',compact('noticias'));
     }
- 
+
+
+    
+
+    /*
+    |--------------------------------------------------------------------------
+    | Eliminar noticia
+    |--------------------------------------------------------------------------
+    | Se recibe el id de la noticia y se elimina
+    |
+    */
+
+    public function destroy($id)
+    {
+        error_log($id); 
+       $noticia =noticia::find($id);
+       $noticia->delete();
+       return redirect('get_news')->with('success','Noticia eliminada con éxito');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Editar noticia
+    |--------------------------------------------------------------------------
+    | Se recibe el id de la noticia a modificar y se redirecciona a la vista para editarla 
+    |
+    */
+
+    public function edit($id)
+    {
+        $noticia =noticia::find($id);
+        return view('Noticias/editarNoticia',compact('noticia','id'));
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | Editar noticia
+    |--------------------------------------------------------------------------
+    | Se recibe el id de la noticia a modificar y se redirecciona a la vista para editarla 
+    |
+    */
+    
+   
+/**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        error_log("entro");
+        $passport= \App\Passport::find($id);
+        $passport->name=$request->get('name');
+        $passport->email=$request->get('email');
+        $passport->number=$request->get('number');
+        $passport->office=$request->get('office');
+        $passport->save();
+        return redirect('passports');
+    }
+
+    
+   
+
+    
+
  
 }

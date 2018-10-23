@@ -25,8 +25,10 @@ Route::get('/Noticias', function () {
 Route::resource('nuevaNoticia','noticias_controller');
 Route::get  ('get_Cursos/'                ,'cursos_controller@getCursos');
 
+ 
 
-
-Route::get('get_news','noticias_controller@index');
+Route::get('/get_news','noticias_controller@index');
+ 
+ 
 
 
