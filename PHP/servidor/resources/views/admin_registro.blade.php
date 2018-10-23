@@ -103,5 +103,56 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+
+                var APP_URL = $('meta[name="_base_url"]').attr('content');
+
+                $('#btnRegistrar').on('click', function(){
+
+                    var carnet = $('#_carnet').val();
+                    var pass = $('#_pass').val();
+                    var nombre = $('#_usuario').val();
+
+                    if(carnet != "" && pass != "" && nombre != ""){
+
+                        $.ajax({
+                            type: "POST",
+                            url: APP_URL + "/registro-usuario",
+                            data: {
+                                user : carnet,
+                                pass : pass,
+                                nombre : nombre
+                            },
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            beforeSend: function() {
+
+                            },
+                            success: function(data) {
+
+                                var obj = $.parseJSON(data);
+
+                                if(obj.code == 1) {
+                                    $('#registroAlerts').html('Usuario registrado correctamente').attr('class', 'alert text-center alert-success').show().delay(4000).fadeOut();
+                                    window.location = APP_URL + '/panel-administrativo';
+                                }else{
+                                    $('#registroAlerts').html(obj.message).attr('class', 'alert text-center alert-danger').show().delay(4000).fadeOut();
+                                }
+
+                            }
+                        });
+
+                    }else{
+                        $('#registroAlerts').html('Debes completar todos los campos').attr('class', 'alert text-center alert-danger').show().delay(4000).fadeOut();
+                    }
+
+                });
+
+            });
+
+        </script>
     </body>
 </html>
