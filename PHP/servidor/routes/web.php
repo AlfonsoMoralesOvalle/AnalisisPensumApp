@@ -16,4 +16,17 @@ Route::get('/', function () {
 });
 
 Route::get  ('get_Cursos/'                ,'cursos_controller@getCursos');
-/* Route::get ('obtenerCursosQuePuedeLlevar' ,'cursos_controller@getCursosQuePuedeLlevar'); */
+
+Route::get('/Noticias', function () {
+    return view('Noticias/nuevaNoticia');
+});
+
+
+Route::resource('nuevaNoticia','noticias_controller');
+Route::get  ('get_Cursos/'                ,'cursos_controller@getCursos');
+
+
+
+Route::get('get_news','noticias_controller@index');
+
+
