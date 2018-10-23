@@ -23,4 +23,23 @@ class Usuario extends Model
 
     }
 
+    public function insert_usuario($datos) {
+
+        $usuario = new Usuario;
+
+        $usuario->user       = $datos['user'];
+        $usuario->password   = $datos['password'];
+        $usuario->nombre     = $datos['nombre'];
+        $usuario->estado     = $datos['estado'];
+
+        $usuario->save();
+
+        if($usuario->id != 0) {
+            return $usuario->id;
+        }else{
+            return FALSE;
+        }
+
+    }
+
 }
