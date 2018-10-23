@@ -46,7 +46,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-md-offset-4">
-                        
+                        <div id="loginAlerts" class="alert" style="display:none;">
+                        </div>
+                        <form role="form">
+                            <div class="form-group">
+                                <label class="control-label">Carnet</label>
+                                <input class="form-control" placeholder="Ingresa tu carnet" type="text" id="_carnet" name="_carnet">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Contraseña</label>
+                                <input class="form-control" placeholder="Contraseña" type="password" id="_pass" name="_pass">
+                            </div>
+                            <button id="btnLogin" type="button" class="btn btn-block btn-success">Login</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -87,5 +99,55 @@
                 </div>
             </div>
         </footer>
+
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+    
+                var APP_URL = $('meta[name="_base_url"]').attr('content');
+    
+                $('#btnLogin').on('click', function(){
+    
+                    var carnet = $('#_carnet').val();
+                    var pass = $('#_pass').val();
+    
+                    if(carnet != "" && pass != ""){
+    
+                        $.ajax({
+                            type: "POST",
+                            url: APP_URL + "/inicio-sesion",
+                            data: {
+                                user : carnet,
+                                pass : pass
+                            },
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            beforeSend: function() {
+    
+                            },
+                            success: function(data) {
+    
+                                var obj = $.parseJSON(data);
+    
+                                if(obj.code == 1) {
+                                    $('#loginAlerts').html('Sesión correcta').attr('class', 'alert text-center alert-success').show().delay(4000).fadeOut();
+                                    window.location = APP_URL + '/panel-administrativo';
+                                }else{
+                                    $('#loginAlerts').html(obj.message).attr('class', 'alert text-center alert-danger').show().delay(4000).fadeOut();
+                                }
+    
+                            }
+                        });
+    
+                    }else{
+                        $('#loginAlerts').html('Debes completar todos los campos').attr('class', 'alert text-center alert-danger').show().delay(4000).fadeOut();
+                    }
+    
+                });
+    
+            });
+    
+        </script>
     </body>
 </html>
