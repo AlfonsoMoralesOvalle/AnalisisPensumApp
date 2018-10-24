@@ -32,37 +32,14 @@
                 </div>
             </div>
         </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <h1>Sesión iniciada</h1>
+                </div>
+            </div>
+        </div>
         <br><br><br><br><br>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="text-center text-success">PANEL ADMINISTRATIVO</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-4">
-                        <div id="loginAlerts" class="alert" style="display:none;">
-                        </div>
-                        <form role="form">
-                            <div class="form-group">
-                                <label class="control-label">Carnet</label>
-                                <input class="form-control" placeholder="Ingresa tu carnet" type="text" id="_carnet" name="_carnet">
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Contraseña</label>
-                                <input class="form-control" placeholder="Contraseña" type="password" id="_pass" name="_pass">
-                            </div>
-                            <button id="btnLogin" type="button" class="btn btn-block btn-success">Login</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
         <br><br><br><br><br>
         <br><br><br><br><br><br>
         <footer class="section section-primary">

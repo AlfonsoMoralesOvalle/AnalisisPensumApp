@@ -103,16 +103,16 @@
         <script type="text/javascript">
 
             $(document).ready(function(){
-    
+
                 var APP_URL = $('meta[name="_base_url"]').attr('content');
-    
+
                 $('#btnLogin').on('click', function(){
-    
+
                     var carnet = $('#_carnet').val();
                     var pass = $('#_pass').val();
-    
+
                     if(carnet != "" && pass != ""){
-    
+
                         $.ajax({
                             type: "POST",
                             url: APP_URL + "/inicio-sesion",
@@ -124,30 +124,30 @@
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
                             beforeSend: function() {
-    
+
                             },
                             success: function(data) {
-    
+
                                 var obj = $.parseJSON(data);
-    
+
                                 if(obj.code == 1) {
                                     $('#loginAlerts').html('Sesión correcta').attr('class', 'alert text-center alert-success').show().delay(4000).fadeOut();
-                                    window.location = APP_URL + '/panel-administrativo';
+                                    location.reload();
                                 }else{
                                     $('#loginAlerts').html(obj.message).attr('class', 'alert text-center alert-danger').show().delay(4000).fadeOut();
                                 }
-    
+
                             }
                         });
-    
+
                     }else{
                         $('#loginAlerts').html('Debes completar todos los campos').attr('class', 'alert text-center alert-danger').show().delay(4000).fadeOut();
                     }
-    
+
                 });
-    
+
             });
-    
+
         </script>
     </body>
 </html>
