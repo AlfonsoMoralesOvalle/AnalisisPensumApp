@@ -131,8 +131,14 @@
                                 var obj = $.parseJSON(data);
 
                                 if(obj.code == 1) {
-                                    $('#loginAlerts').html('Sesión correcta').attr('class', 'alert text-center alert-success').show().delay(4000).fadeOut();
-                                    location.reload();
+
+                                    //$('#loginAlerts').html('Sesión correcta').attr('class', 'alert text-center alert-success').show().delay(4000).fadeOut();
+
+                                    var r = window.confirm("Sesión correcta");
+                                    if (r == true) {
+                                        location.reload();
+                                    }
+
                                 }else{
                                     $('#loginAlerts').html(obj.message).attr('class', 'alert text-center alert-danger').show().delay(4000).fadeOut();
                                 }

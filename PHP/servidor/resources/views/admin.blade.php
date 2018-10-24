@@ -35,7 +35,7 @@
         <div class="section">
             <div class="container">
                 <div class="row">
-                    <h1>Sesión iniciada</h1>
+                    <h1 id="mensaje_bienvenida">Sesión iniciada</h1>
                 </div>
             </div>
         </div>
