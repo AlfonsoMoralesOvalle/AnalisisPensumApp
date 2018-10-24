@@ -55,20 +55,20 @@
       <h4>Editar noticia</h4><br/>
       
       
-      <form method="post" action="{{action('noticias_controller@update', $id)}}" enctype="multipart/form-data">
+      <form method="post" action="{{url('modificarNoticia',$id)}}"   enctype="multipart/form-data">
         @csrf
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
             <label for="Titulo">Titulo:</label>
-            <input type="text" class="form-control" name="titulo">
+            <input type="text" class="form-control" name="titulo" value="{{$noticia->titulo}}">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
               <label for="Texto">Contenido:</label>
-              <textarea rows="4" cols="50" class="form-control" name="texto"></textarea>
+              <textarea rows="4" cols="50" class="form-control" name="texto">{{$noticia->texto}}</textarea>
             </div>
           </div> 
         <div class="row">

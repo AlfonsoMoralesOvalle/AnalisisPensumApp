@@ -35,7 +35,7 @@ class noticias_controller extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | Retornar todas las Noticias
+    | [API]Retornar todas las Noticias
     |--------------------------------------------------------------------------
     | Listado de todas las noticias
     |
@@ -54,7 +54,7 @@ class noticias_controller extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | Mostrar en la página la lista de noticias
+    | [VISTA]Mostrar en la página la lista de noticias
     |--------------------------------------------------------------------------
     | Listado de todas las noticias pero en la vista listaNoticias
     |
@@ -86,7 +86,7 @@ class noticias_controller extends Controller
 
     /*
     |--------------------------------------------------------------------------
-    | Editar noticia
+    | [VISTA]Editar noticia 
     |--------------------------------------------------------------------------
     | Se recibe el id de la noticia a modificar y se redirecciona a la vista para editarla 
     |
@@ -99,36 +99,19 @@ class noticias_controller extends Controller
     }
     /*
     |--------------------------------------------------------------------------
-    | Editar noticia
+    | Update noticia
     |--------------------------------------------------------------------------
-    | Se recibe el id de la noticia a modificar y se redirecciona a la vista para editarla 
+    | Se recibe el id de la noticia a modificar y se redirecciona a la vista donde se listan las vistas
     |
-    */
-    
-   
-/**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        error_log("entro");
-        $passport= \App\Passport::find($id);
-        $passport->name=$request->get('name');
-        $passport->email=$request->get('email');
-        $passport->number=$request->get('number');
-        $passport->office=$request->get('office');
-        $passport->save();
-        return redirect('passports');
+    */ 
+    public function modNoticia(Request $request,$id)
+    { 
+
+        $noticia =noticia::find($id);
+        $noticia->titulo=$request->titulo;
+        $noticia->texto=$request->texto;
+        $noticia->save();
+        return redirect('get_news')->with('success','Noticia modificada con éxito'); 
     }
-
-    
-   
-
-    
-
  
 }

@@ -27,8 +27,11 @@ Route::get  ('get_Cursos/'                ,'cursos_controller@getCursos');
 
  
 
+
+
 Route::get('/get_news','noticias_controller@index');
  
  
+Route::post ('modificarNoticia/{id}'  ,'noticias_controller@modNoticia');
 
 
