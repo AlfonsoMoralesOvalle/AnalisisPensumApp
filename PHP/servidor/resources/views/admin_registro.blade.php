@@ -136,8 +136,11 @@
                                 var obj = $.parseJSON(data);
 
                                 if(obj.code == 1) {
-                                    $('#registroAlerts').html('Usuario registrado correctamente').attr('class', 'alert text-center alert-success').show().delay(4000).fadeOut();
-                                    window.location = APP_URL + '/panel-administrativo';
+                                    
+                                    var r = window.confirm('Usuario registrado correctamente');
+                                    if (r == true) {
+                                        location.reload();
+                                    }
                                 }else{
                                     $('#registroAlerts').html(obj.message).attr('class', 'alert text-center alert-danger').show().delay(4000).fadeOut();
                                 }
