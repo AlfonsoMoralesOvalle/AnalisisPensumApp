@@ -17,7 +17,7 @@ export class ServiciosProvider {
     constructor(public helper:Http) {
         console.log('Hello ServiciosProvider Provider');
     }
-
+    user : any;
     pensum : any
     //FUNCION ENCARGADA DE PODER TRAER EL PENSUM NECESARIO
     getPensum(idSemestre)
@@ -95,7 +95,7 @@ export class ServiciosProvider {
 
     getListCourse()
     {
-        var url = "http://35.237.133.63:8000/api/get_obtenerCarreras";
+        var url = "http://35.227.70.30:8000/api/get_obtenerCarreras";
         return this.helper.get(url).map((res:Response)=>res.json());
     }
 
@@ -107,7 +107,7 @@ export class ServiciosProvider {
     registroUsuario(carnet, usuario, nombre, password, idCarrera)
     {
         //var url = this.dominio + "/api/post_registrarNuevoUsuario";
-        var url = "http://35.237.133.63:8000/api/post_registrarNuevoUsuario"
+        var url = "http://35.227.70.30:8000/api/post_registrarNuevoUsuario"
         let postData = new FormData();
         postData.append('carnet', carnet);
         postData.append('usuario', usuario);
@@ -123,12 +123,49 @@ export class ServiciosProvider {
 
     realizarLogIn(usuario, password)
     {
-        var url = "http://35.237.133.63:8000/api/post_login";
+        var url = "http://35.227.70.30:8000/api/post_login";
         let postData = new FormData();
         postData.append('usuario', usuario);
         postData.append('password', password);
         return this.helper.post(url, postData).map((res:Response)=>res.json());
     }
+    
+    /**
+     * METODO QUE GUARDA LA INFORMACION DEL USUARIO
+     */
+    saveUser(carnet, carrera, usuario2)
+    {
+        this.user = new usuario(carnet, carrera, usuario2);
+    }
 
+    /**
+     * METODO QUE DEVUELVE EL USUARIO
+     */
+    getUser(){
+        return this.user;
+    }
+    
+    /**
+     * METODO QUE VA A TRAER TODAS LAS NOTICIASS DE LA FACULTAD 
+     */
+    getNoticias()
+    {
+        var url = "http://35.227.70.30:8000/api/get_news";
+        return this.helper.get(url).map((res:Response)=>res.json());
+    }
 
+}
+
+class usuario 
+{
+    carnet: 0;
+    idCarrera: 0;
+    usuario : "";
+
+    constructor(carnet, idcarrera, usuario)
+    {
+        this.carnet = carnet;
+        this.idCarrera = idcarrera;
+        this.usuario = usuario;
+    }
 }
