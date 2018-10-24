@@ -41,8 +41,7 @@ class noticias_controller extends Controller
     |
     */
 
-    public function getNoticias(){
-        error_log("noticias");
+    public function getNoticias(){ 
         $news = DB::table('noticias')
             ->select('titulo','texto','hora','fecha')
             ->get();
@@ -77,8 +76,7 @@ class noticias_controller extends Controller
     */
 
     public function destroy($id)
-    {
-        error_log($id); 
+    { 
        $noticia =noticia::find($id);
        $noticia->delete();
        return redirect('get_news')->with('success','Noticia eliminada con éxito');

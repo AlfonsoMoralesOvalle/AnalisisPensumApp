@@ -32,16 +32,31 @@
                 </div>
             </div>
         </div>
+ 
+
         <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="jumbotron">
+                        <h2 class="display-4">Bienvenido al panel administrativo!</h2>
+                        <p class="lead">En este panel usted podrá configurar diferentes datos de la aplicación.</p>
+                        <hr class="my-4">
+                        <p>En esta sección usted podrá administrar las noticias de la facultad.</p>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="{{ url('/get_news') }}" role="button">Ir a noticias</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="section">
             <div class="container">
                 <div class="row">
                     <h1 id="mensaje_bienvenida">Sesión iniciada</h1>
                 </div>
             </div>
-        </div>
-        <br><br><br><br><br>
-        <br><br><br><br><br>
-        <br><br><br><br><br><br>
+        </div> --> 
         <footer class="section section-primary">
             <div class="container">
                 <div class="row">
