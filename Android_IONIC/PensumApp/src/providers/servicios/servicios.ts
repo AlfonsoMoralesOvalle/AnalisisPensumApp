@@ -144,7 +144,15 @@ export class ServiciosProvider {
     getUser(){
         return this.user;
     }
-	
+    
+    /**
+     * METODO QUE VA A TRAER TODAS LAS NOTICIASS DE LA FACULTAD 
+     */
+    getNoticias()
+    {
+        var url = "http://35.227.70.30:8000/api/get_news";
+        return this.helper.get(url).map((res:Response)=>res.json());
+    }
 
 }
 

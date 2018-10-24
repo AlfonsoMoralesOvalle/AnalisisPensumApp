@@ -1,4 +1,4 @@
-webpackJsonp([7],{
+webpackJsonp([8],{
 
 /***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6,10 +6,10 @@ webpackJsonp([7],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogInPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__registro_registro__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_servicios_servicios__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_servicios_servicios__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -106,8 +106,8 @@ var LogInPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegistroPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -224,7 +224,8 @@ var RegistroPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NoticiasPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -236,6 +237,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
  * Generated class for the NoticiasPage page.
  *
@@ -243,18 +246,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var NoticiasPage = /** @class */ (function () {
-    function NoticiasPage(navCtrl, navParams) {
+    function NoticiasPage(navCtrl, modal, loadingCtrl, navParams, servicio) {
         this.navCtrl = navCtrl;
+        this.modal = modal;
+        this.loadingCtrl = loadingCtrl;
         this.navParams = navParams;
+        this.servicio = servicio;
     }
     NoticiasPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
         console.log('ionViewDidLoad NoticiasPage');
+        var loader = this.loadingCtrl.create({
+            content: "Cargando...",
+        });
+        loader.present();
+        setTimeout(function () {
+            loader.dismiss();
+            // AQUI CARGO TODO LO DEL CONTENIDO
+            _this.servicio.getNoticias().subscribe(function (data) { _this.noticias = data; });
+        }, 3000);
+    };
+    NoticiasPage.prototype.verNoticia = function (texto, titulo, hora, fecha) {
+        var datos = {
+            text: texto,
+            title: titulo,
+            hour: hora,
+            date: fecha
+        };
+        console.log(texto);
+        var miModal = this.modal.create('VNoticiaPage', { data: datos });
+        miModal.present();
+    };
+    NoticiasPage.prototype.doRefresh = function (refresher) {
+        var _this = this;
+        setTimeout(function () {
+            refresher.complete();
+            // AQUI COLOCO LO QUE HAGA AL FINALIZAR
+            _this.servicio.getNoticias().subscribe(function (data) { _this.noticias = data; });
+        }, 2000);
     };
     NoticiasPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-noticias',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\noticias\noticias.html"*/'<!--\n  Generated template for the NoticiasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar hideBackButton color="lblue">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      <ion-icon name="alarm"></ion-icon>\n      Noticias de Facultad\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n  <div>\n    <ion-card>\n      <ion-card-header>\n        Titulo de Noticias\n      </ion-card-header>\n      <ion-card-content>\n        Hora / dia\n        <br>\n        <button full ion-button><ion-icon name="log-in"></ion-icon> Ver Noticia</button>\n      </ion-card-content>\n    </ion-card>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\noticias\noticias.html"*/,
+            selector: 'page-noticias',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\noticias\noticias.html"*/'<!--\n  Generated template for the NoticiasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar hideBackButton color="lblue">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>\n      <ion-icon name="alarm"></ion-icon>\n      Noticias de Facultad\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content></ion-refresher-content>\n  </ion-refresher>\n  <div *ngFor="let m of noticias">\n    <ion-card>\n      <img src="http://media.ingenieria.usac.edu.gt/images/joomla_template/logo_institucional.png"/>\n      <ion-card-header>\n        {{m.titulo}}\n      </ion-card-header>\n      <ion-card-content>\n        <p>Hora: {{m.hora}}</p>\n        <p>fecha: {{m.fecha}}</p>\n        <button full ion-button (click)="verNoticia(m.texto, m.titulo, m.hora, m.fecha)"><ion-icon name="log-in"></ion-icon> Ver Noticia</button>\n      </ion-card-content>\n    </ion-card>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\noticias\noticias.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__["a" /* ServiciosProvider */]])
     ], NoticiasPage);
     return NoticiasPage;
 }());
@@ -269,9 +304,9 @@ var NoticiasPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProgresoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ejemplo_ejemplo__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_servicios_servicios__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_servicios_servicios__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -379,8 +414,8 @@ var ProgresoPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VerPensumPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -493,31 +528,35 @@ webpackEmptyAsyncContext.id = 121;
 var map = {
 	"../pages/agregar-curso/agregar-curso.module": [
 		286,
-		1
+		2
 	],
 	"../pages/log-in/log-in.module": [
 		287,
-		6
+		7
 	],
 	"../pages/noticias/noticias.module": [
 		288,
-		5
+		6
 	],
 	"../pages/pensum/pensum.module": [
 		289,
-		0
+		1
 	],
 	"../pages/progreso/progreso.module": [
 		290,
-		4
+		5
 	],
 	"../pages/registro/registro.module": [
 		291,
-		3
+		4
+	],
+	"../pages/v-noticia/v-noticia.module": [
+		292,
+		0
 	],
 	"../pages/ver-pensum/ver-pensum.module": [
-		292,
-		2
+		293,
+		3
 	]
 };
 function webpackAsyncContext(req) {
@@ -555,9 +594,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(81);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(283);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(79);
@@ -569,7 +608,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_noticias_noticias__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(205);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_servicios_servicios__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_servicios_servicios__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_user_service_user_service__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_ejemplo_ejemplo__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_http__ = __webpack_require__(163);
@@ -627,6 +666,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/pensum/pensum.module#PensumPageModule', name: 'PensumPage', segment: 'pensum', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/progreso/progreso.module#ProgresoPageModule', name: 'ProgresoPage', segment: 'progreso', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/registro/registro.module#RegistroPageModule', name: 'RegistroPage', segment: 'registro', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/v-noticia/v-noticia.module#VNoticiaPageModule', name: 'VNoticiaPage', segment: 'v-noticia', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/ver-pensum/ver-pensum.module#VerPensumPageModule', name: 'VerPensumPage', segment: 'ver-pensum', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -663,192 +703,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 283:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_log_in_log_in__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_progreso_progreso__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ver_pensum_ver_pensum__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_noticias_noticias__ = __webpack_require__(107);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen) {
-        this.platform = platform;
-        this.statusBar = statusBar;
-        this.splashScreen = splashScreen;
-        //rootPage: any = HomePage;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_log_in_log_in__["a" /* LogInPage */];
-        this.initializeApp();
-        // used for an example of ngFor and navigation
-        this.pages = [
-            { title: 'Ver Mi Horario', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] },
-            //{ title: 'List', component: ListPage }
-            { title: 'Ver Mi Progreso', component: __WEBPACK_IMPORTED_MODULE_6__pages_progreso_progreso__["a" /* ProgresoPage */] },
-            { title: 'Log Out', component: __WEBPACK_IMPORTED_MODULE_5__pages_log_in_log_in__["a" /* LogInPage */] },
-            { title: 'Ver Pensum', component: __WEBPACK_IMPORTED_MODULE_7__pages_ver_pensum_ver_pensum__["a" /* VerPensumPage */] },
-            { title: 'Noticias', component: __WEBPACK_IMPORTED_MODULE_8__pages_noticias_noticias__["a" /* NoticiasPage */] }
-        ];
-    }
-    MyApp.prototype.initializeApp = function () {
-        var _this = this;
-        this.platform.ready().then(function () {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            _this.statusBar.styleDefault();
-            _this.splashScreen.hide();
-        });
-    };
-    MyApp.prototype.openPage = function (page) {
-        // Reset the content nav to have just this page
-        // we wouldn't want the back button to show in this scenario
-        if (page == 'Log Out') {
-            this.nav.popToRoot();
-        }
-        else {
-            this.nav.setRoot(page.component);
-        }
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
-    ], MyApp.prototype, "nav", void 0);
-    MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\app\app.html"*/'<ion-menu [content]="content" persistent="true">\n\n  <ion-header>\n\n    <ion-toolbar color="lblue">\n\n      <ion-title>\n\n        <ion-icon name="apps"></ion-icon>\n\n        Menu Principal\n\n      </ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        <ion-icon name="arrow-forward"></ion-icon>\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\app\app.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
-    ], MyApp);
-    return MyApp;
-}());
-
-//# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 284:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var ListPage = /** @class */ (function () {
-    function ListPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        // If we navigated to this page, we will have an item available as a nav param
-        this.selectedItem = navParams.get('item');
-        // Let's populate this page with some filler content for funzies
-        this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-            'american-football', 'boat', 'bluetooth', 'build'];
-        this.items = [];
-        for (var i = 1; i < 11; i++) {
-            this.items.push({
-                title: 'Item ' + i,
-                note: 'This is item #' + i,
-                icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-            });
-        }
-    }
-    ListPage_1 = ListPage;
-    ListPage.prototype.itemTapped = function (event, item) {
-        // That's right, we're pushing to ourselves!
-        this.navCtrl.push(ListPage_1, {
-            item: item
-        });
-    };
-    ListPage = ListPage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\list\list.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>List</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n\n      {{item.title}}\n\n      <div class="item-note" item-end>\n\n        {{item.note}}\n\n      </div>\n\n    </button>\n\n  </ion-list>\n\n  <div *ngIf="selectedItem" padding>\n\n    You navigated here from <b>{{selectedItem.title}}</b>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\list\list.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], ListPage);
-    return ListPage;
-    var ListPage_1;
-}());
-
-//# sourceMappingURL=list.js.map
-
-/***/ }),
-
-/***/ 285:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/*
-  Generated class for the UserServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var UserServiceProvider = /** @class */ (function () {
-    function UserServiceProvider(http) {
-        this.http = http;
-        console.log('Hello UserServiceProvider Provider');
-    }
-    UserServiceProvider.prototype.getRandomUser = function () {
-        return this.http.get('https://randomuser.me/api/?results=25');
-    };
-    UserServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
-    ], UserServiceProvider);
-    return UserServiceProvider;
-}());
-
-//# sourceMappingURL=user-service.js.map
-
-/***/ }),
-
-/***/ 30:
+/***/ 27:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -983,6 +838,28 @@ var ServiciosProvider = /** @class */ (function () {
     ServiciosProvider.prototype.getUser = function () {
         return this.user;
     };
+    /**
+     * METODO QUE VA A TRAER TODAS LAS NOTICIASS DE LA FACULTAD
+     */
+    ServiciosProvider.prototype.getNoticias = function () {
+        var url = "http://35.227.70.30:8000/api/get_news";
+        var noticias = [
+            {
+                "titulo": "noticia1",
+                "texto": "esta es la notica 1",
+                "hora": "10:30",
+                "fecha": "12/10/1996"
+            },
+            {
+                "titulo": "noticia2",
+                "texto": "esta es la notica 2",
+                "hora": "11:30",
+                "fecha": "13/10/1996"
+            }
+        ];
+        //return noticias;
+        return this.helper.get(url).map(function (res) { return res.json(); });
+    };
     ServiciosProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
@@ -1002,14 +879,199 @@ var usuario = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 283:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_log_in_log_in__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_progreso_progreso__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ver_pensum_ver_pensum__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_noticias_noticias__ = __webpack_require__(107);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+var MyApp = /** @class */ (function () {
+    function MyApp(platform, statusBar, splashScreen) {
+        this.platform = platform;
+        this.statusBar = statusBar;
+        this.splashScreen = splashScreen;
+        //rootPage: any = HomePage;
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_log_in_log_in__["a" /* LogInPage */];
+        this.initializeApp();
+        // used for an example of ngFor and navigation
+        this.pages = [
+            { title: 'Ver Mi Horario', component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] },
+            //{ title: 'List', component: ListPage }
+            { title: 'Ver Mi Progreso', component: __WEBPACK_IMPORTED_MODULE_6__pages_progreso_progreso__["a" /* ProgresoPage */] },
+            { title: 'Log Out', component: __WEBPACK_IMPORTED_MODULE_5__pages_log_in_log_in__["a" /* LogInPage */] },
+            { title: 'Ver Pensum', component: __WEBPACK_IMPORTED_MODULE_7__pages_ver_pensum_ver_pensum__["a" /* VerPensumPage */] },
+            { title: 'Noticias', component: __WEBPACK_IMPORTED_MODULE_8__pages_noticias_noticias__["a" /* NoticiasPage */] }
+        ];
+    }
+    MyApp.prototype.initializeApp = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            _this.statusBar.styleDefault();
+            _this.splashScreen.hide();
+        });
+    };
+    MyApp.prototype.openPage = function (page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        if (page == 'Log Out') {
+            this.nav.popToRoot();
+        }
+        else {
+            this.nav.setRoot(page.component);
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
+    ], MyApp.prototype, "nav", void 0);
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\app\app.html"*/'<ion-menu [content]="content" persistent="true">\n\n  <ion-header>\n\n    <ion-toolbar color="lblue">\n\n      <ion-title>\n\n        <ion-icon name="apps"></ion-icon>\n\n        Menu Principal\n\n      </ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        <ion-icon name="arrow-forward"></ion-icon>\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\app\app.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 284:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ListPage = /** @class */ (function () {
+    function ListPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        // If we navigated to this page, we will have an item available as a nav param
+        this.selectedItem = navParams.get('item');
+        // Let's populate this page with some filler content for funzies
+        this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
+            'american-football', 'boat', 'bluetooth', 'build'];
+        this.items = [];
+        for (var i = 1; i < 11; i++) {
+            this.items.push({
+                title: 'Item ' + i,
+                note: 'This is item #' + i,
+                icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+            });
+        }
+    }
+    ListPage_1 = ListPage;
+    ListPage.prototype.itemTapped = function (event, item) {
+        // That's right, we're pushing to ourselves!
+        this.navCtrl.push(ListPage_1, {
+            item: item
+        });
+    };
+    ListPage = ListPage_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-list',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\list\list.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>List</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">\n\n      <ion-icon [name]="item.icon" item-start></ion-icon>\n\n      {{item.title}}\n\n      <div class="item-note" item-end>\n\n        {{item.note}}\n\n      </div>\n\n    </button>\n\n  </ion-list>\n\n  <div *ngIf="selectedItem" padding>\n\n    You navigated here from <b>{{selectedItem.title}}</b>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\list\list.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], ListPage);
+    return ListPage;
+    var ListPage_1;
+}());
+
+//# sourceMappingURL=list.js.map
+
+/***/ }),
+
+/***/ 285:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/*
+  Generated class for the UserServiceProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var UserServiceProvider = /** @class */ (function () {
+    function UserServiceProvider(http) {
+        this.http = http;
+        console.log('Hello UserServiceProvider Provider');
+    }
+    UserServiceProvider.prototype.getRandomUser = function () {
+        return this.http.get('https://randomuser.me/api/?results=25');
+    };
+    UserServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], UserServiceProvider);
+    return UserServiceProvider;
+}());
+
+//# sourceMappingURL=user-service.js.map
+
+/***/ }),
+
 /***/ 79:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_servicios_servicios__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_ejemplo_ejemplo__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_local_notifications__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

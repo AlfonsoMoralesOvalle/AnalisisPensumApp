@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 289:
+/***/ 292:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PensumPageModule", function() { return PensumPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VNoticiaPageModule", function() { return VNoticiaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pensum__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__v_noticia__ = __webpack_require__(296);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PensumPageModule = /** @class */ (function () {
-    function PensumPageModule() {
+var VNoticiaPageModule = /** @class */ (function () {
+    function VNoticiaPageModule() {
     }
-    PensumPageModule = __decorate([
+    VNoticiaPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__pensum__["a" /* PensumPage */],
+                __WEBPACK_IMPORTED_MODULE_2__v_noticia__["a" /* VNoticiaPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__pensum__["a" /* PensumPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__v_noticia__["a" /* VNoticiaPage */]),
             ],
         })
-    ], PensumPageModule);
-    return PensumPageModule;
+    ], VNoticiaPageModule);
+    return VNoticiaPageModule;
 }());
 
-//# sourceMappingURL=pensum.module.js.map
+//# sourceMappingURL=v-noticia.module.js.map
 
 /***/ }),
 
-/***/ 294:
+/***/ 296:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PensumPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VNoticiaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,29 +57,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the PensumPage page.
+ * Generated class for the VNoticiaPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var PensumPage = /** @class */ (function () {
-    function PensumPage(navCtrl, navParams) {
+var VNoticiaPage = /** @class */ (function () {
+    function VNoticiaPage(navCtrl, view, navParams) {
         this.navCtrl = navCtrl;
+        this.view = view;
         this.navParams = navParams;
     }
-    PensumPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad PensumPage');
+    VNoticiaPage.prototype.ionViewWillLoad = function () {
+        console.log('ionViewDidLoad VNoticiaPage');
+        this.datos = this.navParams.get('data');
+        console.log(this.datos);
     };
-    PensumPage = __decorate([
+    VNoticiaPage.prototype.cerrar = function () {
+        this.view.dismiss();
+    };
+    VNoticiaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-pensum',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\pensum\pensum.html"*/'<!--\n\n  Generated template for the PensumPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Pensum</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\pensum\pensum.html"*/,
+            selector: 'page-v-noticia',template:/*ion-inline-start:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\v-noticia\v-noticia.html"*/'<!--\n  Generated template for the VNoticiaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar hideBackButton color="lblue">\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>\n        <ion-icon name="alarm"></ion-icon>\n        {{datos.title}}\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding>\n  <div text-center>\n    <h3>{{datos.text}}</h3>\n    <p>\n      Fecha de publicacion: {{datos.date}} \n    </p>\n    <p>\n      Hora de publicacion: {{datos.hour}}\n    </p>\n    <p>\n      <button full ion-button (click)="cerrar()">Cerrar</button>\n    </p>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ricar\Documents\Universidad\Segundo_S_2018\Analisis_y_Diseno_1\Repo_Proyecto\AnalisisPensumApp\Android_IONIC\PensumApp\src\pages\v-noticia\v-noticia.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], PensumPage);
-    return PensumPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], VNoticiaPage);
+    return VNoticiaPage;
 }());
 
-//# sourceMappingURL=pensum.js.map
+//# sourceMappingURL=v-noticia.js.map
 
 /***/ })
 

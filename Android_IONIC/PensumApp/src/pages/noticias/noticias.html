@@ -19,15 +19,19 @@
 
 <ion-content padding>
 
-  <div>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngFor="let m of noticias">
     <ion-card>
+      <img src="http://media.ingenieria.usac.edu.gt/images/joomla_template/logo_institucional.png"/>
       <ion-card-header>
-        Titulo de Noticias
+        {{m.titulo}}
       </ion-card-header>
       <ion-card-content>
-        Hora / dia
-        <br>
-        <button full ion-button><ion-icon name="log-in"></ion-icon> Ver Noticia</button>
+        <p>Hora: {{m.hora}}</p>
+        <p>fecha: {{m.fecha}}</p>
+        <button full ion-button (click)="verNoticia(m.texto, m.titulo, m.hora, m.fecha)"><ion-icon name="log-in"></ion-icon> Ver Noticia</button>
       </ion-card-content>
     </ion-card>
   </div>
