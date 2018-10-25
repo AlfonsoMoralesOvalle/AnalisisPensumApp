@@ -10,6 +10,7 @@ import { LogInPage } from "../pages/log-in/log-in";
 import { ProgresoPage } from "../pages/progreso/progreso";
 import { VerPensumPage } from "../pages/ver-pensum/ver-pensum";
 import { RegistroPage } from "../pages/registro/registro";
+import { NoticiasPage } from "../pages/noticias/noticias";
 //import { AgregarCursoPage } from "../pages/agregar-curso/agregar-curso";
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -28,7 +29,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     LogInPage,
     ProgresoPage,
     VerPensumPage,
-    RegistroPage
+    RegistroPage,
+    NoticiasPage
     //AgregarCursoPage
   ],
   imports: [
@@ -46,7 +48,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     LogInPage,
     ProgresoPage,
     VerPensumPage,
-    RegistroPage
+    RegistroPage,
+    NoticiasPage
     //AgregarCursoPage
   ],
   providers: [

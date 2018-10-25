@@ -14,3 +14,7 @@ class TestAPI(unittest.TestCase):
     def test_login_url(self):
         result = APICall.testing_login_url()
         self.assertEqual(result, 200)
+
+    def testing_news_url(self):
+        result = APICall.testing_news_url()
+        self.assertEqual(result, 200)

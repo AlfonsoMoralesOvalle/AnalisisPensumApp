@@ -51,6 +51,7 @@ export class LogInPage {
         loader.dismiss();
         if(mens.respuesta == 1)
         {
+          this.servicio.saveUser(mens.carnet, mens.idCarrera, this.usuario.value);
           this.navCtrl.push(HomePage);
         }
         else

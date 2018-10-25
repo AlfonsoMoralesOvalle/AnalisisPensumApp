@@ -131,3 +131,7 @@ Route::get('get_borrarTodosLosUsuarios', 'registroUsuarios_controller@borrarTodo
     */ 
   
 Route::post('post_login', 'login_controller@loginEstudiante');
+
+
+
+Route::get('get_news','noticias_controller@getNoticias');
