@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class RegistroAdministradorCest
 {
@@ -13,7 +13,7 @@ class RegistroAdministradorCest
 
     public function pruebaFuncionalRegistroAdmin(FunctionalTester $I)
     {
-        $I->amOnPage('/panel-administrativo');
+        $I->amOnPage('/');
         $I->wait(5);
         $I->click('Registro');
         $I->wait(5);
