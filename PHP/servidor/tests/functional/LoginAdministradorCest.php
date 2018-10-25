@@ -13,7 +13,7 @@ class LoginAdministradorCest
 
     public function pruebaFuncionalLoginAdmin(FunctionalTester $I) {
 
-        $I->amOnPage('/panel-administrativo');
+        $I->amOnPage('/');
         $I->wait(5);
         $I->fillField('_carnet', '201213177');
         $I->fillField('_pass', '123456');
